@@ -49,12 +49,13 @@ nav {
   display: flex; justify-content: space-between; align-items: center;
   border-bottom: 1px solid transparent;
   transition: border-color 0.3s, background 0.3s;
+  gap: 32px;
 }
 nav.scrolled { background: rgba(7,7,7,0.95); backdrop-filter: blur(18px); border-color: var(--border); }
-.nav-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.05rem; letter-spacing: 0.05em; color: var(--white); text-decoration: none; flex-shrink: 0; }
+.nav-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.05rem; letter-spacing: 0.05em; color: var(--white); text-decoration: none; flex-shrink: 0; white-space: nowrap; }
 .nav-logo span { color: var(--accent); }
-.nav-links { display: flex; gap: 36px; list-style: none; }
-.nav-links a { font-size: 0.8rem; font-weight: 400; color: var(--muted); text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
+.nav-links { display: flex; gap: 28px; list-style: none; flex-shrink: 1; }
+.nav-links a { font-size: 0.75rem; font-weight: 400; color: var(--muted); text-decoration: none; letter-spacing: 0.07em; text-transform: uppercase; transition: color 0.2s; white-space: nowrap; }
 .nav-links a:hover { color: var(--white); }
 .nav-right { display: flex; gap: 10px; align-items: center; }
 .nav-cta-talent { font-size: 0.78rem; font-weight: 600; color: var(--black); background: var(--accent2); padding: 9px 18px; border-radius: 2px; text-decoration: none; font-family: 'Syne', sans-serif; transition: opacity 0.15s, transform 0.1s; letter-spacing: 0.02em; cursor: pointer; border: none; }
@@ -328,7 +329,7 @@ footer { padding: 40px 48px; border-top: 1px solid var(--border); display: flex;
   .service-item { grid-template-columns: 48px 1fr; gap: 20px; }
   .service-arrow { display: none; }
   .why-grid { grid-template-columns: 1fr; }
-  .values-grid { grid-template-columns: 1fr !important; }
+  .values-grid { grid-template-columns: 1fr 1fr !important; }
   .how-steps { grid-template-columns: 1fr 1fr; }
   .step { border-right: none; border-bottom: 1px solid var(--border); }
   .step:nth-child(odd) { border-right: 1px solid var(--border); }
@@ -405,7 +406,6 @@ footer { padding: 40px 48px; border-top: 1px solid var(--border); display: flex;
   </h1>
   <div class="hero-bottom">
     <p class="hero-sub">We source, negotiate, and manage influencer campaigns across Latin America — so brands and agencies don't have to figure out the region alone.</p>
-    <a href="#register" class="btn-ghost" style="align-self:flex-end;">See how it works ↓</a>
   </div>
 </section>
 
@@ -605,7 +605,7 @@ footer { padding: 40px 48px; border-top: 1px solid var(--border); display: flex;
 <!-- WHO WE ARE + VALUES -->
 
 <section id="about" style="background:var(--mid); border-top:1px solid var(--border);">
-  <div class="reveal" style="max-width:720px; margin-bottom:72px;">
+  <div class="reveal" style="max-width:720px; margin-bottom:80px;">
     <p class="section-label">Who we are</p>
     <h2 style="font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(2rem,4vw,3.4rem);line-height:1.06;letter-spacing:-0.02em;margin-bottom:24px;">A small team with deep roots in LATAM's creator economy.</h2>
     <p style="font-size:1rem;font-weight:300;color:var(--muted);line-height:1.82;">Influmetrics was built by people who have worked in influencer marketing from the inside — managing campaigns, negotiating with talent, and understanding what it really takes to make a collaboration work. We're not a platform. We're a team that cares about getting it right.</p>
@@ -613,43 +613,31 @@ footer { padding: 40px 48px; border-top: 1px solid var(--border); display: flex;
 
   <div class="reveal">
     <p class="section-label">What we believe in</p>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;" class="values-grid">
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2px;" class="values-grid">
 
 ```
-  <div style="background:var(--black);padding:48px 36px;">
-    <p style="font-family:'Syne',sans-serif;font-weight:800;font-size:2rem;color:var(--accent);line-height:1;margin-bottom:20px;">01</p>
-    <h4 style="font-family:'Syne',sans-serif;font-weight:700;font-size:1.05rem;margin-bottom:12px;">Transparency over spin</h4>
-    <p style="font-size:0.9rem;font-weight:300;color:var(--muted);line-height:1.78;">We tell you what we can do, what we can't, and why. No inflated numbers, no false promises. If something isn't working, you'll hear it from us first.</p>
+  <div style="background:var(--black);padding:52px 40px;position:relative;overflow:hidden;">
+    <p style="font-family:'Syne',sans-serif;font-weight:800;font-size:3.5rem;color:rgba(184,240,74,0.08);line-height:1;position:absolute;top:24px;right:24px;letter-spacing:-0.04em;">01</p>
+    <h3 style="font-family:'Syne',sans-serif;font-weight:800;font-size:2rem;color:var(--accent);letter-spacing:-0.02em;margin-bottom:20px;line-height:1;">Transparency</h3>
+    <p style="font-size:0.9rem;font-weight:300;color:var(--muted);line-height:1.78;">We tell you what we can do and what we can't. No inflated numbers, no false promises. If something isn't working, you'll hear it from us first.</p>
   </div>
 
-  <div style="background:var(--black);padding:48px 36px;">
-    <p style="font-family:'Syne',sans-serif;font-weight:800;font-size:2rem;color:var(--accent);line-height:1;margin-bottom:20px;">02</p>
-    <h4 style="font-family:'Syne',sans-serif;font-weight:700;font-size:1.05rem;margin-bottom:12px;">Process as a competitive advantage</h4>
-    <p style="font-size:0.9rem;font-weight:300;color:var(--muted);line-height:1.78;">Good results in influencer marketing come from good process — clear briefs, consistent follow-up, and no dropped balls. We obsess over the details so campaigns don't fall apart in execution.</p>
-  </div>
-
-  <div style="background:var(--black);padding:48px 36px;">
-    <p style="font-family:'Syne',sans-serif;font-weight:800;font-size:2rem;color:var(--accent);line-height:1;margin-bottom:20px;">03</p>
-    <h4 style="font-family:'Syne',sans-serif;font-weight:700;font-size:1.05rem;margin-bottom:12px;">Details matter</h4>
-    <p style="font-size:0.9rem;font-weight:300;color:var(--muted);line-height:1.78;">The difference between a good campaign and a great one is usually in the details. Tone, timing, creator fit, content review — we pay attention to the things that are easy to overlook.</p>
-  </div>
-
-  <div style="background:var(--black);padding:48px 36px;">
-    <p style="font-family:'Syne',sans-serif;font-weight:800;font-size:2rem;color:var(--accent);line-height:1;margin-bottom:20px;">04</p>
-    <h4 style="font-family:'Syne',sans-serif;font-weight:700;font-size:1.05rem;margin-bottom:12px;">Relationships over transactions</h4>
+  <div style="background:var(--black);padding:52px 40px;position:relative;overflow:hidden;">
+    <p style="font-family:'Syne',sans-serif;font-weight:800;font-size:3.5rem;color:rgba(184,240,74,0.08);line-height:1;position:absolute;top:24px;right:24px;letter-spacing:-0.04em;">02</p>
+    <h3 style="font-family:'Syne',sans-serif;font-weight:800;font-size:2rem;color:var(--accent);letter-spacing:-0.02em;margin-bottom:20px;line-height:1;">Relationships</h3>
     <p style="font-size:0.9rem;font-weight:300;color:var(--muted);line-height:1.78;">We work with creators and clients we respect, and we build for the long term. One good campaign can become an ongoing partnership — that's always the goal.</p>
   </div>
 
-  <div style="background:var(--black);padding:48px 36px;">
-    <p style="font-family:'Syne',sans-serif;font-weight:800;font-size:2rem;color:var(--accent);line-height:1;margin-bottom:20px;">05</p>
-    <h4 style="font-family:'Syne',sans-serif;font-weight:700;font-size:1.05rem;margin-bottom:12px;">Speed with care</h4>
-    <p style="font-size:0.9rem;font-weight:300;color:var(--muted);line-height:1.78;">We move fast because clients need it — but not so fast that we cut corners. Urgency and quality aren't opposites. We've learned how to hold both.</p>
+  <div style="background:var(--black);padding:52px 40px;position:relative;overflow:hidden;">
+    <p style="font-family:'Syne',sans-serif;font-weight:800;font-size:3.5rem;color:rgba(184,240,74,0.08);line-height:1;position:absolute;top:24px;right:24px;letter-spacing:-0.04em;">03</p>
+    <h3 style="font-family:'Syne',sans-serif;font-weight:800;font-size:2rem;color:var(--accent);letter-spacing:-0.02em;margin-bottom:20px;line-height:1;">Dare</h3>
+    <p style="font-size:0.9rem;font-weight:300;color:var(--muted);line-height:1.78;">We propose the right talent even when it's not the obvious choice, and we tell clients when something won't work. Good outcomes require honest conversations.</p>
   </div>
 
-  <div style="background:var(--black);padding:48px 36px;">
-    <p style="font-family:'Syne',sans-serif;font-weight:800;font-size:2rem;color:var(--accent);line-height:1;margin-bottom:20px;">06</p>
-    <h4 style="font-family:'Syne',sans-serif;font-weight:700;font-size:1.05rem;margin-bottom:12px;">LATAM from the inside</h4>
-    <p style="font-size:0.9rem;font-weight:300;color:var(--muted);line-height:1.78;">We don't apply a global template to a regional market. We understand how Latin America works — culturally, commercially, and creatively — and that shapes everything we do.</p>
+  <div style="background:var(--black);padding:52px 40px;position:relative;overflow:hidden;">
+    <p style="font-family:'Syne',sans-serif;font-weight:800;font-size:3.5rem;color:rgba(184,240,74,0.08);line-height:1;position:absolute;top:24px;right:24px;letter-spacing:-0.04em;">04</p>
+    <h3 style="font-family:'Syne',sans-serif;font-weight:800;font-size:2rem;color:var(--accent);letter-spacing:-0.02em;margin-bottom:20px;line-height:1;">Speed</h3>
+    <p style="font-size:0.9rem;font-weight:300;color:var(--muted);line-height:1.78;">We act with the urgency our clients need — without cutting corners. In this industry, timing matters. We're built to move fast when it counts.</p>
   </div>
 
 </div>
