@@ -328,6 +328,7 @@ footer { padding: 40px 48px; border-top: 1px solid var(--border); display: flex;
   .service-item { grid-template-columns: 48px 1fr; gap: 20px; }
   .service-arrow { display: none; }
   .why-grid { grid-template-columns: 1fr; }
+  .values-grid { grid-template-columns: 1fr !important; }
   .how-steps { grid-template-columns: 1fr 1fr; }
   .step { border-right: none; border-bottom: 1px solid var(--border); }
   .step:nth-child(odd) { border-right: 1px solid var(--border); }
@@ -362,13 +363,13 @@ footer { padding: 40px 48px; border-top: 1px solid var(--border); display: flex;
 <nav id="nav">
   <a href="https://influmetrics.lat" class="nav-logo">INFLU<span>METRICS</span></a>
   <ul class="nav-links">
+    <li><a href="#about">Who We Are</a></li>
     <li><a href="#register">Get Started</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#how">Process</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <div class="nav-right">
-    <button class="nav-cta-talent" onclick="openModal('talent')">Join as Talent</button>
     <button class="nav-cta" onclick="openModal('client')">Start a Campaign</button>
   </div>
   <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -379,6 +380,7 @@ footer { padding: 40px 48px; border-top: 1px solid var(--border); display: flex;
 <!-- MOBILE MENU -->
 
 <div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMobile()">Who We Are</a>
   <a href="#register" onclick="closeMobile()">Get Started</a>
   <a href="#services" onclick="closeMobile()">Services</a>
   <a href="#how" onclick="closeMobile()">Process</a>
@@ -403,10 +405,7 @@ footer { padding: 40px 48px; border-top: 1px solid var(--border); display: flex;
   </h1>
   <div class="hero-bottom">
     <p class="hero-sub">We source, negotiate, and manage influencer campaigns across Latin America — so brands and agencies don't have to figure out the region alone.</p>
-    <div class="hero-actions">
-      <button class="btn-primary" onclick="openModal('client')">Start a campaign →</button>
-      <button class="btn-talent" onclick="openModal('talent')">Join as Talent →</button>
-    </div>
+    <a href="#register" class="btn-ghost" style="align-self:flex-end;">See how it works ↓</a>
   </div>
 </section>
 
@@ -603,66 +602,83 @@ footer { padding: 40px 48px; border-top: 1px solid var(--border); display: flex;
   </div>
 </div>
 
+<!-- WHO WE ARE + VALUES -->
+
+<section id="about" style="background:var(--mid); border-top:1px solid var(--border);">
+  <div class="reveal" style="max-width:720px; margin-bottom:72px;">
+    <p class="section-label">Who we are</p>
+    <h2 style="font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(2rem,4vw,3.4rem);line-height:1.06;letter-spacing:-0.02em;margin-bottom:24px;">A small team with deep roots in LATAM's creator economy.</h2>
+    <p style="font-size:1rem;font-weight:300;color:var(--muted);line-height:1.82;">Influmetrics was built by people who have worked in influencer marketing from the inside — managing campaigns, negotiating with talent, and understanding what it really takes to make a collaboration work. We're not a platform. We're a team that cares about getting it right.</p>
+  </div>
+
+  <div class="reveal">
+    <p class="section-label">What we believe in</p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;" class="values-grid">
+
+```
+  <div style="background:var(--black);padding:48px 36px;">
+    <p style="font-family:'Syne',sans-serif;font-weight:800;font-size:2rem;color:var(--accent);line-height:1;margin-bottom:20px;">01</p>
+    <h4 style="font-family:'Syne',sans-serif;font-weight:700;font-size:1.05rem;margin-bottom:12px;">Transparency over spin</h4>
+    <p style="font-size:0.9rem;font-weight:300;color:var(--muted);line-height:1.78;">We tell you what we can do, what we can't, and why. No inflated numbers, no false promises. If something isn't working, you'll hear it from us first.</p>
+  </div>
+
+  <div style="background:var(--black);padding:48px 36px;">
+    <p style="font-family:'Syne',sans-serif;font-weight:800;font-size:2rem;color:var(--accent);line-height:1;margin-bottom:20px;">02</p>
+    <h4 style="font-family:'Syne',sans-serif;font-weight:700;font-size:1.05rem;margin-bottom:12px;">Process as a competitive advantage</h4>
+    <p style="font-size:0.9rem;font-weight:300;color:var(--muted);line-height:1.78;">Good results in influencer marketing come from good process — clear briefs, consistent follow-up, and no dropped balls. We obsess over the details so campaigns don't fall apart in execution.</p>
+  </div>
+
+  <div style="background:var(--black);padding:48px 36px;">
+    <p style="font-family:'Syne',sans-serif;font-weight:800;font-size:2rem;color:var(--accent);line-height:1;margin-bottom:20px;">03</p>
+    <h4 style="font-family:'Syne',sans-serif;font-weight:700;font-size:1.05rem;margin-bottom:12px;">Details matter</h4>
+    <p style="font-size:0.9rem;font-weight:300;color:var(--muted);line-height:1.78;">The difference between a good campaign and a great one is usually in the details. Tone, timing, creator fit, content review — we pay attention to the things that are easy to overlook.</p>
+  </div>
+
+  <div style="background:var(--black);padding:48px 36px;">
+    <p style="font-family:'Syne',sans-serif;font-weight:800;font-size:2rem;color:var(--accent);line-height:1;margin-bottom:20px;">04</p>
+    <h4 style="font-family:'Syne',sans-serif;font-weight:700;font-size:1.05rem;margin-bottom:12px;">Relationships over transactions</h4>
+    <p style="font-size:0.9rem;font-weight:300;color:var(--muted);line-height:1.78;">We work with creators and clients we respect, and we build for the long term. One good campaign can become an ongoing partnership — that's always the goal.</p>
+  </div>
+
+  <div style="background:var(--black);padding:48px 36px;">
+    <p style="font-family:'Syne',sans-serif;font-weight:800;font-size:2rem;color:var(--accent);line-height:1;margin-bottom:20px;">05</p>
+    <h4 style="font-family:'Syne',sans-serif;font-weight:700;font-size:1.05rem;margin-bottom:12px;">Speed with care</h4>
+    <p style="font-size:0.9rem;font-weight:300;color:var(--muted);line-height:1.78;">We move fast because clients need it — but not so fast that we cut corners. Urgency and quality aren't opposites. We've learned how to hold both.</p>
+  </div>
+
+  <div style="background:var(--black);padding:48px 36px;">
+    <p style="font-family:'Syne',sans-serif;font-weight:800;font-size:2rem;color:var(--accent);line-height:1;margin-bottom:20px;">06</p>
+    <h4 style="font-family:'Syne',sans-serif;font-weight:700;font-size:1.05rem;margin-bottom:12px;">LATAM from the inside</h4>
+    <p style="font-size:0.9rem;font-weight:300;color:var(--muted);line-height:1.78;">We don't apply a global template to a regional market. We understand how Latin America works — culturally, commercially, and creatively — and that shapes everything we do.</p>
+  </div>
+
+</div>
+```
+
+  </div>
+</section>
+
 <!-- CONTACT -->
 
 <section id="contact">
-  <div class="contact-grid">
-    <div class="reveal">
-      <p class="section-label">Get in touch</p>
-      <h2 class="contact-title">Let's build your <span>LATAM</span> campaign.</h2>
-      <p class="contact-sub">Brands, agencies, and startups welcome. Fill in the form or reach us directly — we'll respond promptly.</p>
-      <div class="contact-links">
-        <a href="mailto:justo@influmetrics.lat" class="contact-link">
-          <span class="c-icon">✉</span>
-          justo@influmetrics.lat
-        </a>
-        <a href="https://www.instagram.com/influmetrics.agency" target="_blank" rel="noopener" class="contact-link">
-          <span class="c-icon c-icon-cyan">◎</span>
-          @influmetrics.agency
-        </a>
-        <a href="https://www.linkedin.com/company/influmetrics-agency" target="_blank" rel="noopener" class="contact-link">
-          <span class="c-icon">in</span>
-          linkedin.com/company/influmetrics-agency
-        </a>
-
-```
-  </div>
-</div>
-<form class="contact-form reveal" id="contactForm" novalidate>
-  <div class="cform-row">
-    <div class="cfield">
-      <label for="cname">Your name *</label>
-      <input type="text" id="cname" name="name" placeholder="Jane Smith" required autocomplete="name"/>
+  <div class="reveal">
+    <p class="section-label">Get in touch</p>
+    <h2 class="contact-title">Let's build your <span>LATAM</span> campaign.</h2>
+    <p class="contact-sub">Brands, agencies, and startups welcome. Reach us directly or use the forms above — we'll respond promptly.</p>
+    <div class="contact-links" style="max-width:480px;">
+      <a href="mailto:justo@influmetrics.lat" class="contact-link">
+        <span class="c-icon">✉</span>
+        justo@influmetrics.lat
+      </a>
+      <a href="https://www.instagram.com/influmetrics.agency" target="_blank" rel="noopener" class="contact-link">
+        <span class="c-icon c-icon-cyan">◎</span>
+        @influmetrics.agency
+      </a>
+      <a href="https://www.linkedin.com/company/influmetrics-agency" target="_blank" rel="noopener" class="contact-link">
+        <span class="c-icon">in</span>
+        linkedin.com/company/influmetrics-agency
+      </a>
     </div>
-    <div class="cfield">
-      <label for="ccompany">Company *</label>
-      <input type="text" id="ccompany" name="company" placeholder="Acme Agency" required autocomplete="organization"/>
-    </div>
-  </div>
-  <div class="cfield">
-    <label for="cemail">Work email *</label>
-    <input type="email" id="cemail" name="email" placeholder="jane@acmeagency.com" required autocomplete="email"/>
-  </div>
-  <div class="cfield">
-    <label for="ctype">You are a...</label>
-    <select id="ctype" name="type">
-      <option value="" disabled selected>Select one</option>
-      <option>Brand / Company</option>
-      <option>Advertising Agency</option>
-      <option>Startup</option>
-      <option>Other</option>
-    </select>
-  </div>
-  <div class="cfield">
-    <label for="cmessage">Tell us about your campaign *</label>
-    <textarea id="cmessage" name="message" placeholder="Target market, budget range, timeline, any details..." required></textarea>
-  </div>
-  <button type="button" class="cform-submit" onclick="submitContact()">Send message →</button>
-  <p class="cform-note">We respond within 24 business hours.</p>
-  <p class="cform-success" id="cSuccess">✓ Message sent! We'll be in touch shortly.</p>
-</form>
-```
-
   </div>
 </section>
 
@@ -684,11 +700,12 @@ footer { padding: 40px 48px; border-top: 1px solid var(--border); display: flex;
 <footer>
   <span class="footer-logo">INFLU<span>METRICS</span></span>
   <ul class="footer-links">
-    <li><a href="#register">Get Started</a></li>
+    <li><a href="#about">Who We Are</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#how">Process</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#" onclick="openModal('privacy'); return false;">Privacy Policy</a></li>
+    <li><a href="mailto:justo@influmetrics.lat">Email Us</a></li>
   </ul>
   <p class="footer-copy">© 2026 Influmetrics</p>
 </footer>
@@ -698,7 +715,6 @@ footer { padding: 40px 48px; border-top: 1px solid var(--border); display: flex;
 <div class="legal-footer">
   <div class="legal-inner">
     <div>
-      <span class="legal-logo">INFLU<span>METRICS</span></span>
       <span class="legal-detail">Influmetrics LLC · Albuquerque, NM 87110, United States</span>
       <span class="legal-detail">influmetrics.lat · justo@influmetrics.lat</span>
     </div>
@@ -913,61 +929,139 @@ footer { padding: 40px 48px; border-top: 1px solid var(--border); display: flex;
 
 ```
 <div class="priv-body" id="priv-en">
-  <h3>1. Who we are</h3>
-  <p>Influmetrics LLC is a talent management and influencer marketing agency incorporated in New Mexico, United States, operating across Latin America. Contact: <a href="mailto:justo@influmetrics.lat">justo@influmetrics.lat</a></p>
+  <h3>1. Data Controller</h3>
+  <p>Influmetrics LLC, registered in New Mexico, United States, with operations across Latin America (hereinafter "Influmetrics", "we", "us") is responsible for the processing of personal data collected through influmetrics.lat and our services. Contact: <a href="mailto:justo@influmetrics.lat">justo@influmetrics.lat</a></p>
 
-  <h3>2. What data we collect</h3>
+  <h3>2. What personal data we collect</h3>
+  <p>We collect only the data necessary to provide our services:</p>
   <ul>
-    <li><strong>Contact data:</strong> name, email address, company name.</li>
-    <li><strong>Campaign data:</strong> budget range, target market, timeline, brief details.</li>
-    <li><strong>Talent data:</strong> social media handles, platform metrics, pricing information.</li>
-    <li><strong>Technical data:</strong> basic browsing data collected if analytics are enabled.</li>
+    <li><strong>Identification data:</strong> full name, email address, company name, phone number (optional).</li>
+    <li><strong>Professional data:</strong> role, company type, campaign information, budget range, target markets.</li>
+    <li><strong>Creator data:</strong> social media handles, platform metrics, content categories, pricing information.</li>
+    <li><strong>Communications data:</strong> content of messages and requests submitted through our forms.</li>
+    <li><strong>Technical data:</strong> IP address and basic browsing data, only if analytics tools are enabled.</li>
   </ul>
+  <p>We do not collect sensitive personal data (racial or ethnic origin, health, religious beliefs, political opinions, or sexual orientation).</p>
 
-  <h3>3. How we use your data</h3>
-  <p>We use your data exclusively to respond to inquiries, match talent profiles with brand campaigns, and manage ongoing campaign coordination. We do not sell, rent, or commercialize your data to third parties under any circumstances.</p>
+  <h3>3. Purposes and legal basis for processing</h3>
+  <ul>
+    <li><strong>Responding to inquiries:</strong> legal basis — your consent when submitting a form.</li>
+    <li><strong>Talent-brand matching:</strong> legal basis — pre-contractual measures at your request.</li>
+    <li><strong>Campaign management:</strong> legal basis — execution of a contract.</li>
+    <li><strong>Legal compliance:</strong> legal basis — compliance with applicable legal obligations.</li>
+  </ul>
+  <p>We do not use your data for automated decision-making, profiling, or third-party advertising under any circumstances.</p>
 
-  <h3>4. Legal basis</h3>
-  <p>Processing is based on your consent when submitting forms, and on the execution of a pre-contractual relationship when you request our services.</p>
+  <h3>4. Data sharing and international transfers</h3>
+  <p>We do not sell, rent, or commercialize personal data. Data may be shared only with:</p>
+  <ul>
+    <li><strong>Service providers</strong> acting as data processors (e.g., form handling, email delivery) under strict confidentiality agreements.</li>
+    <li><strong>Brands or agencies</strong> solely for campaign matching purposes, and only with your prior knowledge.</li>
+    <li><strong>Authorities</strong> when required by applicable law.</li>
+  </ul>
+  <p>Given our international operations, data may be transferred across borders. We apply appropriate safeguards including standard contractual clauses where required under GDPR or equivalent frameworks.</p>
 
   <h3>5. Data retention</h3>
-  <p>Contact form submissions are retained for up to 2 years. Talent profiles are retained while the creator maintains an active relationship with Influmetrics. You may request deletion at any time.</p>
+  <ul>
+    <li>Contact form submissions: retained for up to 2 years from the date of submission.</li>
+    <li>Creator profiles: retained while an active relationship with Influmetrics exists.</li>
+    <li>Campaign-related data: retained for the duration of the campaign plus 2 years for legal compliance purposes.</li>
+    <li>Data subject requests: retained for 3 years to demonstrate compliance.</li>
+  </ul>
+  <p>After the applicable retention period, data is securely deleted or anonymized.</p>
 
   <h3>6. Your rights</h3>
-  <p>You have the right to access, correct, and delete your personal data at any time. Under Argentine Law 25,326, you may also file a complaint with the AAIP (Agencia de Acceso a la Información Pública). Under GDPR, you may contact your local Data Protection Authority.</p>
-  <p>To exercise any right: <a href="mailto:justo@influmetrics.lat">justo@influmetrics.lat</a></p>
+  <p>Depending on your jurisdiction, you have the following rights regarding your personal data:</p>
+  <ul>
+    <li><strong>Right of access:</strong> obtain confirmation of whether we process your data and receive a copy.</li>
+    <li><strong>Right to rectification:</strong> request correction of inaccurate or incomplete data.</li>
+    <li><strong>Right to erasure:</strong> request deletion of your data ("right to be forgotten").</li>
+    <li><strong>Right to restrict processing:</strong> request that we limit how we use your data.</li>
+    <li><strong>Right to data portability:</strong> receive your data in a structured, machine-readable format.</li>
+    <li><strong>Right to object:</strong> object to processing based on legitimate interests.</li>
+    <li><strong>Right to withdraw consent:</strong> withdraw consent at any time without affecting prior processing.</li>
+  </ul>
+  <p><strong>Argentina (Law 25,326):</strong> You may exercise free access to your data every 6 months, unless there is a legitimate interest (Art. 14, inc. 3). The supervisory authority is the AAIP (Agencia de Acceso a la Información Pública).</p>
+  <p><strong>EU/EEA (GDPR):</strong> All rights under GDPR apply. You may lodge complaints with your local Data Protection Authority.</p>
+  <p><strong>United States:</strong> Applicable state privacy laws may provide additional rights depending on your state of residence.</p>
+  <p>To exercise any right, use the form below or contact us at <a href="mailto:justo@influmetrics.lat">justo@influmetrics.lat</a>. We will respond within 30 days.</p>
 
-  <h3>7. Security</h3>
-  <p>We apply appropriate technical and organizational measures to protect your personal data against unauthorized access or disclosure.</p>
+  <h3>7. Cookies and tracking</h3>
+  <p>Our website may use essential cookies for basic functionality. We do not currently use advertising or tracking cookies. If this changes, we will update this policy and request your consent where required.</p>
+
+  <h3>8. Security</h3>
+  <p>We implement appropriate technical and organizational measures to protect your personal data against unauthorized access, disclosure, alteration, or destruction, in accordance with industry standards.</p>
+
+  <h3>9. Changes to this policy</h3>
+  <p>We may update this policy periodically to reflect changes in our practices or applicable regulations. The current version will always be available on this page. Last updated: January 2026.</p>
 </div>
 
 <div class="priv-body" id="priv-es" style="display:none;">
-  <h3>1. Quiénes somos</h3>
-  <p>Influmetrics LLC es una agencia de gestión de talentos y marketing de influencers constituida en Nuevo México, Estados Unidos, con operaciones en América Latina. Contacto: <a href="mailto:justo@influmetrics.lat">justo@influmetrics.lat</a></p>
+  <h3>1. Responsable del tratamiento</h3>
+  <p>Influmetrics LLC, constituida en Nuevo México, Estados Unidos, con operaciones en América Latina (en adelante "Influmetrics", "nosotros"), es responsable del tratamiento de los datos personales recopilados a través de influmetrics.lat y nuestros servicios. Contacto: <a href="mailto:justo@influmetrics.lat">justo@influmetrics.lat</a></p>
 
-  <h3>2. Qué datos recopilamos</h3>
+  <h3>2. Qué datos personales recopilamos</h3>
+  <p>Recopilamos únicamente los datos necesarios para prestar nuestros servicios:</p>
   <ul>
-    <li><strong>Datos de contacto:</strong> nombre, correo electrónico, nombre de empresa.</li>
-    <li><strong>Datos de campaña:</strong> presupuesto, mercado objetivo, tiempos, brief.</li>
-    <li><strong>Datos de talentos:</strong> redes sociales, métricas de plataformas, precios.</li>
-    <li><strong>Datos técnicos:</strong> datos básicos de navegación si se utilizan analytics.</li>
+    <li><strong>Datos de identificación:</strong> nombre completo, correo electrónico, empresa, teléfono (opcional).</li>
+    <li><strong>Datos profesionales:</strong> cargo, tipo de empresa, información de campaña, presupuesto, mercados objetivo.</li>
+    <li><strong>Datos de creadores:</strong> redes sociales, métricas de plataformas, categorías de contenido, tarifas.</li>
+    <li><strong>Datos de comunicaciones:</strong> contenido de mensajes y solicitudes enviados a través de nuestros formularios.</li>
+    <li><strong>Datos técnicos:</strong> dirección IP y datos básicos de navegación, solo si se utilizan herramientas de analítica.</li>
   </ul>
+  <p>No recopilamos datos sensibles (origen racial o étnico, salud, creencias religiosas, opiniones políticas u orientación sexual).</p>
 
-  <h3>3. Para qué usamos tus datos</h3>
-  <p>Utilizamos tus datos exclusivamente para responder consultas, conectar perfiles de talentos con campañas y coordinar la ejecución de las mismas. No vendemos, alquilamos ni comercializamos tus datos a terceros bajo ninguna circunstancia.</p>
+  <h3>3. Finalidades y base legal del tratamiento</h3>
+  <ul>
+    <li><strong>Responder consultas:</strong> base legal — tu consentimiento al completar un formulario.</li>
+    <li><strong>Matching talento-marca:</strong> base legal — medidas precontractuales a tu solicitud.</li>
+    <li><strong>Gestión de campañas:</strong> base legal — ejecución de un contrato.</li>
+    <li><strong>Cumplimiento legal:</strong> base legal — obligaciones legales aplicables.</li>
+  </ul>
+  <p>No utilizamos tus datos para decisiones automatizadas, perfilamiento ni publicidad de terceros bajo ninguna circunstancia.</p>
 
-  <h3>4. Base legal del tratamiento</h3>
-  <p>El tratamiento se basa en tu consentimiento al completar formularios, y en la ejecución de una relación precontractual cuando solicitás nuestros servicios.</p>
+  <h3>4. Compartición de datos y transferencias internacionales</h3>
+  <p>No vendemos, alquilamos ni comercializamos datos personales. Los datos solo pueden compartirse con:</p>
+  <ul>
+    <li><strong>Proveedores de servicios</strong> que actúan como encargados del tratamiento (gestión de formularios, envío de correos), bajo acuerdos de confidencialidad estrictos.</li>
+    <li><strong>Marcas o agencias</strong> únicamente para la vinculación con campañas y con tu conocimiento previo.</li>
+    <li><strong>Autoridades</strong> cuando lo exija la legislación aplicable.</li>
+  </ul>
+  <p>Dada nuestra operación internacional, los datos pueden transferirse entre países. Aplicamos salvaguardias adecuadas, incluyendo cláusulas contractuales estándar donde lo exige el RGPD u otros marcos equivalentes.</p>
 
   <h3>5. Retención de datos</h3>
-  <p>Las consultas por formulario se conservan hasta 2 años. Los perfiles de talentos se conservan mientras el creador mantenga una relación activa con Influmetrics. Podés solicitar la eliminación de tus datos en cualquier momento.</p>
+  <ul>
+    <li>Consultas por formulario: hasta 2 años desde la fecha de envío.</li>
+    <li>Perfiles de creadores: mientras exista una relación activa con Influmetrics.</li>
+    <li>Datos de campañas: durante la campaña más 2 años por cumplimiento legal.</li>
+    <li>Solicitudes de derechos: 3 años para acreditar el cumplimiento.</li>
+  </ul>
+  <p>Vencido el plazo aplicable, los datos se eliminan de forma segura o se anonimizan.</p>
 
   <h3>6. Tus derechos</h3>
-  <p>Tenés derecho a acceder, rectificar y suprimir tus datos personales en cualquier momento. Conforme a la Ley 25.326, podés ejercer el derecho de acceso en forma gratuita a intervalos no inferiores a seis meses, salvo acreditación de interés legítimo (art. 14, inc. 3). La autoridad de control es la AAIP (Agencia de Acceso a la Información Pública).</p>
-  <p>Para ejercer cualquier derecho: <a href="mailto:justo@influmetrics.lat">justo@influmetrics.lat</a></p>
+  <p>Según tu jurisdicción, tenés los siguientes derechos sobre tus datos personales:</p>
+  <ul>
+    <li><strong>Acceso:</strong> obtener confirmación de si tratamos tus datos y recibir una copia.</li>
+    <li><strong>Rectificación:</strong> solicitar la corrección de datos inexactos o incompletos.</li>
+    <li><strong>Supresión:</strong> solicitar la eliminación de tus datos ("derecho al olvido").</li>
+    <li><strong>Limitación:</strong> solicitar que restrinjamos el uso de tus datos.</li>
+    <li><strong>Portabilidad:</strong> recibir tus datos en formato estructurado y legible por máquina.</li>
+    <li><strong>Oposición:</strong> oponerte al tratamiento basado en interés legítimo.</li>
+    <li><strong>Retirar el consentimiento:</strong> en cualquier momento, sin afectar el tratamiento previo.</li>
+  </ul>
+  <p><strong>Argentina (Ley 25.326):</strong> Podés ejercer el derecho de acceso en forma gratuita a intervalos no inferiores a seis meses, salvo acreditación de interés legítimo (art. 14, inc. 3). La autoridad de control es la AAIP (Agencia de Acceso a la Información Pública). La AAIP tiene la facultad de atender las denuncias y reclamos que se interpongan con relación al incumplimiento de las normas sobre protección de datos personales.</p>
+  <p><strong>UE/EEA (RGPD):</strong> Se aplican todos los derechos del RGPD. Podés presentar reclamos ante tu Autoridad de Protección de Datos local.</p>
+  <p><strong>Estados Unidos:</strong> Las leyes de privacidad estatales aplicables pueden otorgar derechos adicionales según tu estado de residencia.</p>
+  <p>Para ejercer cualquier derecho, usá el formulario abajo o contactanos en <a href="mailto:justo@influmetrics.lat">justo@influmetrics.lat</a>. Respondemos en un plazo de 30 días.</p>
 
-  <h3>7. Seguridad</h3>
-  <p>Aplicamos medidas técnicas y organizativas apropiadas para proteger tus datos personales contra accesos no autorizados o divulgación.</p>
+  <h3>7. Cookies y rastreo</h3>
+  <p>Nuestro sitio puede utilizar cookies esenciales para el funcionamiento básico. Actualmente no utilizamos cookies publicitarias ni de rastreo. Si esto cambia, actualizaremos esta política y solicitaremos tu consentimiento donde corresponda.</p>
+
+  <h3>8. Seguridad</h3>
+  <p>Implementamos medidas técnicas y organizativas apropiadas para proteger tus datos personales contra accesos no autorizados, divulgación, alteración o destrucción, conforme a los estándares del sector.</p>
+
+  <h3>9. Cambios en esta política</h3>
+  <p>Podemos actualizar esta política periódicamente para reflejar cambios en nuestras prácticas o en la normativa aplicable. La versión vigente estará siempre disponible en esta página. Última actualización: enero de 2026.</p>
 </div>
 
 <!-- DSAR FORM -->
