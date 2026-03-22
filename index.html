@@ -64,7 +64,7 @@ nav.scrolled { background: rgba(7,7,7,0.95); backdrop-filter: blur(18px); border
 .nav-cta:hover, .nav-cta-talent:hover { opacity: 0.88; }
 .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
 .hamburger span { width: 22px; height: 2px; background: var(--white); border-radius: 2px; display: block; }
-.mobile-menu { display: none; position: fixed; top: 72px; left: 0; right: 0; bottom: 0; background: rgba(7,7,7,0.98); backdrop-filter: blur(20px); flex-direction: column; align-items: center; justify-content: center; gap: 28px; z-index: 199; }
+.mobile-menu { display: none; position: fixed; top: 64px; left: 0; right: 0; bottom: 0; background: rgba(7,7,7,0.98); backdrop-filter: blur(20px); flex-direction: column; align-items: center; justify-content: center; gap: 28px; z-index: 199; }
 .mobile-menu.open { display: flex; }
 .mobile-menu a, .mobile-menu button { font-family: 'Syne', sans-serif; font-size: 1.3rem; font-weight: 700; color: var(--white); text-decoration: none; background: none; border: none; cursor: pointer; transition: color 0.2s; }
 .mobile-menu a:hover, .mobile-menu button:hover { color: var(--accent); }
@@ -314,10 +314,12 @@ footer { padding: 40px 48px; border-top: 1px solid var(--border); display: flex;
 .reveal.visible { opacity: 1; transform: none; }
 
 /* RESPONSIVE */
-@media (max-width: 900px) {
-  nav { padding: 0 24px; height: 64px; }
+@media (max-width: 1024px) {
   .nav-links, .nav-right { display: none; }
   .hamburger { display: flex; }
+  nav { padding: 0 24px; height: 64px; }
+}
+@media (max-width: 900px) {
   section { padding: 80px 24px; }
   .hero { padding: 64px 24px 64px; }
   .hero-bottom { flex-direction: column; align-items: flex-start; gap: 32px; }
@@ -349,6 +351,7 @@ footer { padding: 40px 48px; border-top: 1px solid var(--border); display: flex;
 @media (max-width: 480px) {
   .hero-title { font-size: clamp(2.4rem, 11vw, 3.2rem); }
   .how-steps { grid-template-columns: 1fr; }
+  .values-grid { grid-template-columns: 1fr !important; }
   .step:nth-child(odd) { border-right: none; }
   .step:nth-last-child(-n+2) { border-bottom: 1px solid var(--border); }
   .step:last-child { border-bottom: none; }
