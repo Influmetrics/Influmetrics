@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Influmetrics — Influencer Marketing in Latin America</title>
+  <meta name="description" content="We connect brands and agencies with the right creators across Latin America."/>
+  <meta property="og:title" content="Influmetrics — Influencer Marketing in LATAM"/>
+  <meta property="og:url" content="https://influmetrics.lat"/>
+  <link rel="canonical" href="https://influmetrics.lat"/>
+  <meta name="color-scheme" content="dark"/>
+  <meta name="theme-color" content="#070707"/>
+  <meta http-equiv="X-Content-Type-Options" content="nosniff"/>
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin"/>
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()"/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { background: #070707 !important; color: #f4f1ec !important; color-scheme: dark !important; }
+    :root {
+      --black: #070707;
+      --white: #f4f1ec;
+      --accent: #b8f04a;
+      --accent-dim: rgba(184,240,74,0.1);
+      --accent2: #5ec4d6;
+      --accent2-dim: rgba(94,196,214,0.1);
+      --mid: #111111;
+      --mid2: #0d0d0d;
+      --border: rgba(244,241,236,0.08);
+      --border-bright: rgba(244,241,236,0.18);
+      --muted: rgba(244,241,236,0.42);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: #070707 !important; color: #f4f1ec !important; overflow-x: hidden; }
+    body::before {
+      content: ''; position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      opacity: 0.022; pointer-events: none; z-index: 9990;
+    }
+
+```
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  padding: 0 48px; height: 72px;
+  display: flex; justify-content: space-between; align-items: center;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s, background 0.3s;
+}
+nav.scrolled { background: rgba(7,7,7,0.95); backdrop-filter: blur(18px); border-color: var(--border); }
+.nav-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.05rem; letter-spacing: 0.05em; color: var(--white); text-decoration: none; flex-shrink: 0; }
+.nav-logo span { color: var(--accent); }
+.nav-links { display: flex; gap: 36px; list-style: none; }
+.nav-links a { font-size: 0.8rem; font-weight: 400; color: var(--muted); text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
+.nav-links a:hover { color: var(--white); }
+.nav-right { display: flex; gap: 10px; align-items: center; }
+.nav-cta-talent { font-size: 0.78rem; font-weight: 600; color: var(--black); background: var(--accent2); padding: 9px 18px; border-radius: 2px; text-decoration: none; font-family: 'Syne', sans-serif; transition: opacity 0.15s, transform 0.1s; letter-spacing: 0.02em; cursor: pointer; border: none; }
+.nav-cta { font-size: 0.78rem; font-weight: 600; color: var(--black); background: var(--accent); padding: 9px 18px; border-radius: 2px; text-decoration: none; font-family: 'Syne', sans-serif; transition: opacity 0.15s, transform 0.1s; letter-spacing: 0.02em; cursor: pointer; border: none; }
+.nav-cta:active, .nav-cta-talent:active { transform: scale(0.94); opacity: 0.75; }
+.nav-cta:hover, .nav-cta-talent:hover { opacity: 0.88; }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+.hamburger span { width: 22px; height: 2px; background: var(--white); border-radius: 2px; display: block; }
+.mobile-menu { display: none; position: fixed; top: 72px; left: 0; right: 0; bottom: 0; background: rgba(7,7,7,0.98); backdrop-filter: blur(20px); flex-direction: column; align-items: center; justify-content: center; gap: 28px; z-index: 199; }
+.mobile-menu.open { display: flex; }
+.mobile-menu a, .mobile-menu button { font-family: 'Syne', sans-serif; font-size: 1.3rem; font-weight: 700; color: var(--white); text-decoration: none; background: none; border: none; cursor: pointer; transition: color 0.2s; }
+.mobile-menu a:hover, .mobile-menu button:hover { color: var(--accent); }
+.mobile-divider { width: 40px; height: 1px; background: var(--border-bright); }
+.mobile-btn-group { display: flex; flex-direction: column; gap: 10px; align-items: center; }
+.mobile-btn { padding: 12px 32px !important; border-radius: 2px !important; font-size: 0.9rem !important; }
+.mobile-btn-green { background: var(--accent) !important; color: var(--black) !important; }
+.mobile-btn-cyan { background: var(--accent2) !important; color: var(--black) !important; }
+
+/* ── HERO ── */
+.hero { min-height: 100svh; display: flex; flex-direction: column; justify-content: flex-end; padding: 72px 48px 88px; position: relative; overflow: hidden; }
+.hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 70% 55% at 65% 25%, rgba(184,240,74,0.07) 0%, transparent 70%), radial-gradient(ellipse 40% 35% at 15% 85%, rgba(94,196,214,0.04) 0%, transparent 60%); }
+.hero-grid { position: absolute; inset: 0; background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: 72px 72px; mask-image: radial-gradient(ellipse 85% 85% at 50% 50%, black 20%, transparent 100%); }
+.hero-eyebrow { font-size: 0.72rem; font-weight: 400; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 32px; margin-top: 40px; opacity: 0; animation: fadeUp 0.8s 0.2s forwards; display: flex; align-items: center; gap: 14px; position: relative; }
+.hero-eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--accent); }
+.hero-title { font-family: 'Syne', sans-serif; font-weight: 800; font-size: clamp(2.8rem, 7.5vw, 7.5rem); line-height: 0.93; letter-spacing: -0.025em; max-width: 960px; position: relative; opacity: 0; animation: fadeUp 0.9s 0.35s forwards; }
+.hero-title em { font-style: italic; font-weight: 600; color: var(--muted); }
+.hero-title .hl { color: var(--accent); }
+.hero-bottom { display: flex; justify-content: space-between; align-items: flex-end; margin-top: 64px; position: relative; opacity: 0; animation: fadeUp 0.9s 0.55s forwards; }
+.hero-sub { font-size: 1rem; font-weight: 300; color: var(--muted); max-width: 360px; line-height: 1.72; }
+.hero-actions { display: flex; flex-direction: column; align-items: flex-end; gap: 14px; }
+
+/* ── BUTTONS ── */
+.btn-primary { display: inline-flex; align-items: center; gap: 10px; background: var(--accent); color: var(--black); font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.88rem; letter-spacing: 0.04em; padding: 15px 30px; border-radius: 2px; text-decoration: none; border: none; cursor: pointer; transition: transform 0.15s, opacity 0.15s, box-shadow 0.15s; -webkit-tap-highlight-color: transparent; }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(184,240,74,0.2); }
+.btn-primary:active { transform: scale(0.95); opacity: 0.7; box-shadow: none; }
+.btn-talent { display: inline-flex; align-items: center; gap: 10px; background: var(--accent2); color: var(--black); font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.88rem; letter-spacing: 0.04em; padding: 15px 30px; border-radius: 2px; text-decoration: none; border: none; cursor: pointer; transition: transform 0.15s, opacity 0.15s, box-shadow 0.15s; -webkit-tap-highlight-color: transparent; }
+.btn-talent:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(94,196,214,0.2); }
+.btn-talent:active { transform: scale(0.95); opacity: 0.7; }
+.btn-ghost { font-size: 0.8rem; color: var(--muted); text-decoration: none; letter-spacing: 0.06em; border-bottom: 1px solid var(--border-bright); padding-bottom: 2px; transition: color 0.2s; background: none; border-top: none; border-left: none; border-right: none; cursor: pointer; }
+.btn-ghost:hover { color: var(--white); }
+
+/* ── MARQUEE ── */
+.marquee-wrap { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); overflow: hidden; padding: 16px 0; background: var(--mid); }
+.marquee-track { display: flex; width: max-content; animation: marquee 32s linear infinite; }
+.marquee-item { display: flex; align-items: center; gap: 28px; padding: 0 36px; font-family: 'Syne', sans-serif; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+.dot { width: 4px; height: 4px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+
+/* ── SECTIONS ── */
+section { padding: 110px 48px; }
+.section-label { font-size: 0.7rem; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 52px; display: flex; align-items: center; gap: 14px; }
+.section-label::before { content: ''; width: 28px; height: 1px; background: var(--accent); }
+
+/* ── REGISTER SPLIT ── */
+.register-split { padding: 0; display: grid; grid-template-columns: 1fr 1fr; min-height: 340px; }
+.reg-panel { padding: 68px 52px; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; transition: background 0.3s; cursor: pointer; }
+.reg-panel-client { background: var(--mid2); border-right: 1px solid var(--border); }
+.reg-panel-talent { background: #080d0e; }
+.reg-panel-client:hover { background: #0f0f0f; }
+.reg-panel-talent:hover { background: #080f12; }
+.reg-tag { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; padding: 5px 12px; border-radius: 1px; display: inline-block; margin-bottom: 20px; width: fit-content; }
+.reg-tag-client { color: var(--black); background: var(--accent); }
+.reg-tag-talent { color: var(--black); background: var(--accent2); }
+.reg-title { font-family: 'Syne', sans-serif; font-weight: 800; font-size: clamp(1.5rem, 2.5vw, 2.2rem); line-height: 1.08; letter-spacing: -0.02em; margin-bottom: 14px; }
+.reg-desc { font-size: 0.9rem; font-weight: 300; color: var(--muted); line-height: 1.75; max-width: 320px; margin-bottom: 32px; }
+.reg-cta { display: inline-flex; align-items: center; gap: 8px; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.04em; padding: 13px 26px; border-radius: 2px; border: none; cursor: pointer; transition: transform 0.15s, opacity 0.15s; -webkit-tap-highlight-color: transparent; text-decoration: none; }
+.reg-cta:active { transform: scale(0.94); opacity: 0.7; }
+.reg-cta:hover { transform: translateY(-2px); opacity: 0.9; }
+.reg-cta-client { background: var(--accent); color: var(--black); }
+.reg-cta-talent { background: var(--accent2); color: var(--black); }
+
+/* ── WHO WE SERVE ── */
+.serve { background: var(--mid); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.serve-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+.serve-card { background: var(--black); padding: 52px 44px; position: relative; overflow: hidden; transition: background 0.3s; }
+.serve-card:hover { background: #0d0d0d; }
+.serve-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease; }
+.serve-card:hover::after { transform: scaleX(1); }
+.serve-num { font-family: 'Syne', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.16em; color: var(--accent); margin-bottom: 24px; }
+.serve-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.4rem; line-height: 1.15; margin-bottom: 14px; letter-spacing: -0.01em; }
+.serve-desc { font-size: 0.91rem; font-weight: 300; color: var(--muted); line-height: 1.78; max-width: 340px; }
+.serve-tag { display: inline-block; margin-top: 24px; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); border: 1px solid rgba(184,240,74,0.25); padding: 5px 12px; border-radius: 1px; }
+
+/* ── SERVICES ── */
+.services-header { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: end; margin-bottom: 64px; }
+.services-title { font-family: 'Syne', sans-serif; font-weight: 800; font-size: clamp(2rem, 3.8vw, 3.4rem); line-height: 1.06; letter-spacing: -0.02em; }
+.services-intro { font-size: 0.96rem; font-weight: 300; color: var(--muted); line-height: 1.82; }
+.services-list { border-top: 1px solid var(--border); }
+.service-item { display: grid; grid-template-columns: 64px 1fr 28px; align-items: center; gap: 36px; padding: 36px 0; border-bottom: 1px solid var(--border); transition: padding-left 0.3s; cursor: default; }
+.service-item:hover { padding-left: 10px; }
+.service-num { font-family: 'Syne', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; color: var(--muted); }
+.service-inner { display: flex; flex-direction: column; }
+.service-name { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.15rem; letter-spacing: -0.01em; transition: color 0.2s; }
+.service-desc { font-size: 0.88rem; color: var(--muted); font-weight: 300; max-width: 520px; line-height: 1.72; display: none; margin-top: 10px; }
+.service-item:hover .service-desc { display: block; }
+.service-item:hover .service-name { color: var(--accent); }
+.service-arrow { font-size: 1rem; color: var(--border-bright); transition: color 0.2s, transform 0.2s; }
+.service-item:hover .service-arrow { color: var(--accent); transform: translateX(4px); }
+
+/* ── WHY ── */
+.why { background: var(--mid); border-top: 1px solid var(--border); }
+.why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+.why-card { background: var(--black); padding: 48px 36px; }
+.why-icon { font-size: 1.5rem; margin-bottom: 20px; }
+.why-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.05rem; margin-bottom: 12px; }
+.why-text { font-size: 0.9rem; font-weight: 300; color: var(--muted); line-height: 1.78; }
+
+/* ── HOW ── */
+.how-steps { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--border); margin-top: 52px; }
+.step { padding: 44px 32px; border-right: 1px solid var(--border); }
+.step:last-child { border-right: none; }
+.step-num { font-family: 'Syne', sans-serif; font-size: 2.6rem; font-weight: 800; color: var(--border-bright); line-height: 1; margin-bottom: 22px; letter-spacing: -0.04em; }
+.step-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.96rem; margin-bottom: 12px; }
+.step-text { font-size: 0.87rem; font-weight: 300; color: var(--muted); line-height: 1.75; }
+
+/* ── REACH ── */
+.reach { background: var(--accent); padding: 72px 48px; }
+.reach-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.reach-title { font-family: 'Syne', sans-serif; font-weight: 800; font-size: clamp(2rem, 3.5vw, 3rem); line-height: 1.1; color: var(--black); letter-spacing: -0.02em; }
+.reach-text { font-size: 0.96rem; color: rgba(7,7,7,0.62); line-height: 1.78; }
+
+/* ── CONTACT ── */
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 96px; align-items: start; }
+.contact-title { font-family: 'Syne', sans-serif; font-weight: 800; font-size: clamp(2.2rem, 4vw, 3.8rem); line-height: 1.02; letter-spacing: -0.025em; margin-bottom: 18px; }
+.contact-title span { color: var(--accent); }
+.contact-sub { font-size: 0.96rem; font-weight: 300; color: var(--muted); line-height: 1.78; margin-bottom: 36px; }
+.contact-links { display: flex; flex-direction: column; }
+.contact-link { display: flex; align-items: center; gap: 14px; font-size: 0.88rem; color: var(--muted); text-decoration: none; padding: 15px 0; border-bottom: 1px solid var(--border); transition: color 0.2s; }
+.contact-link:hover { color: var(--white); }
+.contact-link:active { opacity: 0.6; }
+.c-icon { width: 32px; height: 32px; background: var(--accent-dim); border: 1px solid rgba(184,240,74,0.18); border-radius: 2px; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; flex-shrink: 0; }
+.c-icon-cyan { background: var(--accent2-dim); border-color: rgba(94,196,214,0.18); }
+.contact-form { display: flex; flex-direction: column; gap: 16px; }
+.cfield { display: flex; flex-direction: column; gap: 7px; }
+.cfield label { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+.cfield input, .cfield select, .cfield textarea { background: var(--mid); border: 1px solid var(--border-bright); color: var(--white); font-family: 'DM Sans', sans-serif; font-size: 0.92rem; font-weight: 300; padding: 13px 16px; border-radius: 2px; outline: none; transition: border-color 0.2s; resize: none; -webkit-appearance: none; }
+.cfield input:focus, .cfield select:focus, .cfield textarea:focus { border-color: var(--accent); }
+.cfield select option { background: #111; }
+.cfield textarea { height: 110px; }
+.cform-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.cform-submit { display: inline-flex; align-items: center; gap: 10px; background: var(--accent); color: var(--black); font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.88rem; letter-spacing: 0.04em; padding: 15px 30px; border: none; border-radius: 2px; cursor: pointer; transition: transform 0.15s, opacity 0.15s; align-self: flex-start; -webkit-tap-highlight-color: transparent; }
+.cform-submit:hover { transform: translateY(-2px); }
+.cform-submit:active { transform: scale(0.95); opacity: 0.7; }
+.cform-submit:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+.cform-note { font-size: 0.76rem; color: var(--muted); }
+.cform-success { font-size: 0.88rem; color: var(--accent); display: none; }
+
+/* ── PRIVACY MODAL ── */
+.privacy-trigger-bar { background: var(--mid); border-top: 1px solid var(--border); padding: 32px 48px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+.privacy-trigger-left { display: flex; align-items: center; gap: 16px; }
+.privacy-icon { font-size: 1.1rem; }
+.privacy-trigger-text { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.95rem; }
+.privacy-trigger-sub { font-size: 0.82rem; color: var(--muted); margin-top: 2px; }
+.privacy-open-btn { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.06em; color: var(--black); background: var(--accent); border: none; padding: 10px 22px; border-radius: 2px; cursor: pointer; transition: opacity 0.15s, transform 0.1s; -webkit-tap-highlight-color: transparent; }
+.privacy-open-btn:hover { opacity: 0.88; }
+.privacy-open-btn:active { transform: scale(0.95); opacity: 0.7; }
+
+/* ── MODALS shared ── */
+.modal-overlay { position: fixed; inset: 0; background: rgba(7,7,7,0.9); backdrop-filter: blur(14px); z-index: 500; display: none; align-items: center; justify-content: center; padding: 20px; overflow-y: auto; }
+.modal-overlay.open { display: flex; }
+.modal { background: var(--mid); border: 1px solid var(--border-bright); border-radius: 4px; width: 100%; max-width: 680px; max-height: 90vh; overflow-y: auto; padding: 48px; position: relative; animation: modalIn 0.28s ease; margin: auto; }
+.modal-privacy { max-width: 760px; }
+@keyframes modalIn { from { opacity: 0; transform: translateY(16px) scale(0.98); } to { opacity: 1; transform: none; } }
+.modal-close { position: absolute; top: 20px; right: 20px; background: none; border: none; color: var(--muted); font-size: 1.4rem; cursor: pointer; line-height: 1; transition: color 0.2s; padding: 4px 8px; }
+.modal-close:hover { color: var(--white); }
+.modal-close:active { opacity: 0.6; }
+.modal-tag { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; padding: 4px 12px; border-radius: 1px; display: inline-block; margin-bottom: 20px; }
+.modal-tag-client { background: var(--accent); color: var(--black); }
+.modal-tag-talent { background: var(--accent2); color: var(--black); }
+.modal-tag-privacy { background: var(--border-bright); color: var(--white); }
+.modal-title { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.75rem; letter-spacing: -0.02em; margin-bottom: 8px; }
+.modal-sub { font-size: 0.9rem; color: var(--muted); font-weight: 300; margin-bottom: 32px; line-height: 1.6; }
+.modal-section-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.76rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; margin-top: 24px; }
+
+/* FORM shared */
+.mform { display: flex; flex-direction: column; gap: 14px; }
+.mform-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.mfield { display: flex; flex-direction: column; gap: 7px; }
+.mfield label { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+.mfield input, .mfield select, .mfield textarea { background: #1a1a1a; border: 1px solid var(--border-bright); color: var(--white); font-family: 'DM Sans', sans-serif; font-size: 0.92rem; font-weight: 300; padding: 12px 14px; border-radius: 2px; outline: none; transition: border-color 0.2s; resize: none; -webkit-appearance: none; }
+.mfield input:focus, .mfield select:focus, .mfield textarea:focus { border-color: var(--accent); }
+.mfield-t input:focus, .mfield-t select:focus, .mfield-t textarea:focus { border-color: var(--accent2); }
+.mfield select option { background: #1a1a1a; }
+.mfield textarea { height: 96px; }
+.price-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
+.price-item { display: flex; flex-direction: column; gap: 5px; }
+.price-label { font-size: 0.68rem; font-weight: 400; color: var(--muted); letter-spacing: 0.04em; text-transform: uppercase; }
+.price-input { display: flex; align-items: center; background: #1a1a1a; border: 1px solid var(--border-bright); border-radius: 2px; overflow: hidden; transition: border-color 0.2s; }
+.price-input:focus-within { border-color: var(--accent2); }
+.price-input span { padding: 0 10px; color: var(--muted); font-size: 0.82rem; border-right: 1px solid var(--border-bright); white-space: nowrap; flex-shrink: 0; }
+.price-input input { background: transparent; border: none; color: var(--white); font-family: 'DM Sans', sans-serif; font-size: 0.9rem; padding: 10px 12px; outline: none; width: 100%; min-width: 0; }
+.mform-submit { display: inline-flex; align-items: center; gap: 10px; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.88rem; letter-spacing: 0.04em; padding: 14px 28px; border: none; border-radius: 2px; cursor: pointer; transition: transform 0.15s, opacity 0.15s; align-self: flex-start; margin-top: 6px; -webkit-tap-highlight-color: transparent; }
+.mform-submit:hover { transform: translateY(-2px); }
+.mform-submit:active { transform: scale(0.95); opacity: 0.7; }
+.mform-submit:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+.mform-submit-client { background: var(--accent); color: var(--black); }
+.mform-submit-talent { background: var(--accent2); color: var(--black); }
+.mform-note { font-size: 0.75rem; color: var(--muted); }
+.mform-success { font-size: 0.88rem; color: var(--accent); display: none; margin-top: 4px; }
+.mform-success-t { color: var(--accent2); }
+.urgency-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px; }
+.pill { padding: 7px 14px; border: 1px solid var(--border-bright); border-radius: 20px; font-size: 0.77rem; color: var(--muted); cursor: pointer; transition: all 0.2s; background: transparent; font-family: 'DM Sans', sans-serif; -webkit-tap-highlight-color: transparent; }
+.pill.on-green { border-color: var(--accent); color: var(--accent); background: var(--accent-dim); }
+.pill.on-cyan { border-color: var(--accent2); color: var(--accent2); background: var(--accent2-dim); }
+.progress-bar { height: 3px; background: var(--border); border-radius: 2px; margin-bottom: 28px; overflow: hidden; }
+.progress-fill { height: 100%; border-radius: 2px; transition: width 0.4s ease; }
+.pf-green { background: var(--accent); }
+.pf-cyan { background: var(--accent2); }
+.step-ind { font-size: 0.71rem; color: var(--muted); letter-spacing: 0.1em; margin-bottom: 6px; }
+.fstep { display: none; }
+.fstep.active { display: block; }
+.step-nav { display: flex; gap: 12px; align-items: center; margin-top: 18px; flex-wrap: wrap; }
+.btn-back { background: none; border: 1px solid var(--border-bright); color: var(--muted); font-family: 'Syne', sans-serif; font-size: 0.82rem; font-weight: 600; padding: 11px 18px; border-radius: 2px; cursor: pointer; transition: color 0.2s, border-color 0.2s; }
+.btn-back:hover { color: var(--white); border-color: var(--border-bright); }
+.btn-next { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.85rem; padding: 11px 22px; border-radius: 2px; border: none; cursor: pointer; transition: transform 0.15s, opacity 0.15s; -webkit-tap-highlight-color: transparent; }
+.btn-next:active { transform: scale(0.95); }
+.btn-next-g { background: var(--accent); color: var(--black); }
+.btn-next-c { background: var(--accent2); color: var(--black); }
+.metrics-note { font-size: 0.77rem; color: var(--muted); font-style: italic; }
+
+/* PRIVACY CONTENT */
+.priv-langs { display: flex; gap: 8px; margin-bottom: 28px; }
+.priv-lang-btn { background: none; border: 1px solid var(--border-bright); color: var(--muted); font-family: 'DM Sans', sans-serif; font-size: 0.82rem; padding: 7px 16px; border-radius: 2px; cursor: pointer; transition: all 0.2s; }
+.priv-lang-btn.active { border-color: var(--accent); color: var(--accent); background: var(--accent-dim); }
+.priv-body h3 { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.95rem; margin-bottom: 10px; margin-top: 28px; color: var(--white); }
+.priv-body h3:first-child { margin-top: 0; }
+.priv-body p { font-size: 0.86rem; color: var(--muted); line-height: 1.82; margin-bottom: 10px; font-weight: 300; }
+.priv-body ul { padding-left: 18px; margin-bottom: 10px; }
+.priv-body ul li { font-size: 0.86rem; color: var(--muted); line-height: 1.8; font-weight: 300; margin-bottom: 3px; }
+.priv-body a { color: var(--accent); text-decoration: none; }
+.priv-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--accent-dim); border: 1px solid rgba(184,240,74,0.2); border-radius: 2px; padding: 7px 14px; font-size: 0.77rem; color: var(--accent); margin-bottom: 20px; }
+
+/* LEGAL FOOTER */
+.legal-footer { padding: 32px 48px; background: #050505; border-top: 1px solid var(--border); }
+.legal-inner { display: flex; justify-content: space-between; align-items: flex-start; gap: 32px; flex-wrap: wrap; }
+.legal-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 0.88rem; letter-spacing: 0.05em; margin-bottom: 6px; display: block; }
+.legal-logo span { color: var(--accent); }
+.legal-detail { font-size: 0.73rem; color: var(--muted); line-height: 1.7; display: block; }
+.legal-links { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
+.legal-links a { font-size: 0.73rem; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+.legal-links a:hover { color: var(--white); }
+.legal-copy { font-size: 0.72rem; color: rgba(244,241,236,0.22); }
+
+/* FOOTER */
+footer { padding: 40px 48px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+.footer-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 0.92rem; letter-spacing: 0.05em; }
+.footer-logo span { color: var(--accent); }
+.footer-copy { font-size: 0.75rem; color: var(--muted); }
+.footer-links { display: flex; gap: 28px; list-style: none; flex-wrap: wrap; }
+.footer-links a { font-size: 0.75rem; color: var(--muted); text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s; }
+.footer-links a:hover { color: var(--white); }
+
+/* ANIMATIONS */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  nav { padding: 0 24px; height: 64px; }
+  .nav-links, .nav-right { display: none; }
+  .hamburger { display: flex; }
+  section { padding: 80px 24px; }
+  .hero { padding: 64px 24px 64px; }
+  .hero-bottom { flex-direction: column; align-items: flex-start; gap: 32px; }
+  .hero-actions { align-items: flex-start; flex-direction: row; flex-wrap: wrap; }
+  .register-split { grid-template-columns: 1fr; }
+  .reg-panel-client { border-right: none; border-bottom: 1px solid var(--border); }
+  .serve-grid { grid-template-columns: 1fr; }
+  .services-header { grid-template-columns: 1fr; gap: 24px; }
+  .service-item { grid-template-columns: 48px 1fr; gap: 20px; }
+  .service-arrow { display: none; }
+  .why-grid { grid-template-columns: 1fr; }
+  .how-steps { grid-template-columns: 1fr 1fr; }
+  .step { border-right: none; border-bottom: 1px solid var(--border); }
+  .step:nth-child(odd) { border-right: 1px solid var(--border); }
+  .step:nth-last-child(-n+2) { border-bottom: none; }
+  .reach-inner { grid-template-columns: 1fr; gap: 24px; }
+  .contact-grid { grid-template-columns: 1fr; gap: 56px; }
+  .cform-row { grid-template-columns: 1fr; }
+  .privacy-trigger-bar { padding: 28px 24px; }
+  footer { padding: 32px 24px; flex-direction: column; text-align: center; }
+  .footer-links { justify-content: center; gap: 18px; }
+  .legal-footer { padding: 28px 24px; }
+  .legal-inner { flex-direction: column; }
+  .modal { padding: 32px 22px; }
+  .mform-row { grid-template-columns: 1fr; }
+  .price-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .hero-title { font-size: clamp(2.4rem, 11vw, 3.2rem); }
+  .how-steps { grid-template-columns: 1fr; }
+  .step:nth-child(odd) { border-right: none; }
+  .step:nth-last-child(-n+2) { border-bottom: 1px solid var(--border); }
+  .step:last-child { border-bottom: none; }
+}
+```
+
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+
+<nav id="nav">
+  <a href="https://influmetrics.lat" class="nav-logo">INFLU<span>METRICS</span></a>
+  <ul class="nav-links">
+    <li><a href="#register">Get Started</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#how">Process</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="nav-cta-talent" onclick="openModal('talent')">Join as Talent</button>
+    <button class="nav-cta" onclick="openModal('client')">Start a Campaign</button>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#register" onclick="closeMobile()">Get Started</a>
+  <a href="#services" onclick="closeMobile()">Services</a>
+  <a href="#how" onclick="closeMobile()">Process</a>
+  <a href="#contact" onclick="closeMobile()">Contact</a>
+  <div class="mobile-divider"></div>
+  <div class="mobile-btn-group">
+    <button class="mobile-btn mobile-btn-green" onclick="openModal('client'); closeMobile()">Start a Campaign</button>
+    <button class="mobile-btn mobile-btn-cyan" onclick="openModal('talent'); closeMobile()">Join as Talent</button>
+  </div>
+</div>
+
+<!-- HERO -->
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <p class="hero-eyebrow">Influencer Marketing · Latin America</p>
+  <h1 class="hero-title">
+    Your bridge to<br>
+    <span class="hl">LATAM's</span><br>
+    <em>creator economy.</em>
+  </h1>
+  <div class="hero-bottom">
+    <p class="hero-sub">We source, negotiate, and manage influencer campaigns across Latin America — so brands and agencies don't have to figure out the region alone.</p>
+    <div class="hero-actions">
+      <button class="btn-primary" onclick="openModal('client')">Start a campaign →</button>
+      <button class="btn-talent" onclick="openModal('talent')">Join as Talent →</button>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <div class="marquee-item"><span>Brief Review & Alignment</span><span class="dot"></span></div>
+    <div class="marquee-item"><span>Talent Matching</span><span class="dot"></span></div>
+    <div class="marquee-item"><span>Campaign Orchestration</span><span class="dot"></span></div>
+    <div class="marquee-item"><span>Creator Negotiation</span><span class="dot"></span></div>
+    <div class="marquee-item"><span>LATAM Market Access</span><span class="dot"></span></div>
+    <div class="marquee-item"><span>Performance Reporting</span><span class="dot"></span></div>
+    <div class="marquee-item"><span>Argentina · México · Brasil · Colombia · Chile · Perú</span><span class="dot"></span></div>
+    <div class="marquee-item"><span>Brief Review & Alignment</span><span class="dot"></span></div>
+    <div class="marquee-item"><span>Talent Matching</span><span class="dot"></span></div>
+    <div class="marquee-item"><span>Campaign Orchestration</span><span class="dot"></span></div>
+    <div class="marquee-item"><span>Creator Negotiation</span><span class="dot"></span></div>
+    <div class="marquee-item"><span>LATAM Market Access</span><span class="dot"></span></div>
+    <div class="marquee-item"><span>Performance Reporting</span><span class="dot"></span></div>
+    <div class="marquee-item"><span>Argentina · México · Brasil · Colombia · Chile · Perú</span><span class="dot"></span></div>
+  </div>
+</div>
+
+<!-- REGISTER SPLIT -->
+
+<div class="register-split" id="register">
+  <div class="reg-panel reg-panel-client" onclick="openModal('client')" role="button" tabindex="0">
+    <div>
+      <span class="reg-tag reg-tag-client">For Brands & Agencies</span>
+      <h2 class="reg-title">Need talent for your next campaign?</h2>
+      <p class="reg-desc">Tell us about your campaign and we'll come back with the right creators for your market, brief, and budget.</p>
+    </div>
+    <button class="reg-cta reg-cta-client" onclick="openModal('client'); event.stopPropagation()">Start a campaign →</button>
+  </div>
+  <div class="reg-panel reg-panel-talent" onclick="openModal('talent')" role="button" tabindex="0">
+    <div>
+      <span class="reg-tag reg-tag-talent">For Creators</span>
+      <h2 class="reg-title">Register as a talent</h2>
+      <p class="reg-desc">Share your profile, platforms, and rates. We'll match you with brand campaigns that fit your content and audience.</p>
+    </div>
+    <button class="reg-cta reg-cta-talent" onclick="openModal('talent'); event.stopPropagation()">Register as talent →</button>
+  </div>
+</div>
+
+<!-- WHO WE SERVE -->
+
+<section class="serve">
+  <p class="section-label reveal">Who we work with</p>
+  <div class="serve-grid">
+    <div class="serve-card reveal">
+      <p class="serve-num">01</p>
+      <h3 class="serve-title">Brands entering Latin America</h3>
+      <p class="serve-desc">You have the product, the budget, and the ambition. What you need is someone who knows the creators, the culture, and how to get deals done in the region.</p>
+      <span class="serve-tag">International Brands</span>
+    </div>
+    <div class="serve-card reveal">
+      <p class="serve-num">02</p>
+      <h3 class="serve-title">Agencies that need ground support</h3>
+      <p class="serve-desc">You're running campaigns for your clients and need reliable talent management across LATAM without building the infrastructure yourself. We plug in seamlessly.</p>
+      <span class="serve-tag">Ad Agencies · Media Agencies</span>
+    </div>
+    <div class="serve-card reveal">
+      <p class="serve-num">03</p>
+      <h3 class="serve-title">Startups scaling in the region</h3>
+      <p class="serve-desc">Growth-stage companies with real budget and a need to move fast. We cut through the chaos of creator outreach and get the right profiles confirmed.</p>
+      <span class="serve-tag">DTC · Tech · Consumer</span>
+    </div>
+    <div class="serve-card reveal">
+      <p class="serve-num">04</p>
+      <h3 class="serve-title">Brands already in LATAM, scaling up</h3>
+      <p class="serve-desc">You've proven the market. Now you need consistent, well-managed influencer operations across multiple countries without the internal overhead.</p>
+      <span class="serve-tag">Regional Brands</span>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+
+<section id="services">
+  <div class="services-header reveal">
+    <h2 class="services-title">What we do for you</h2>
+    <p class="services-intro">We handle the operational side of influencer marketing — from finding the right talent to coordinating the campaign end to end. You bring the brand and the brief, we take it from there.</p>
+  </div>
+  <div class="services-list">
+    <div class="service-item reveal">
+      <span class="service-num">01</span>
+      <div class="service-inner">
+        <span class="service-name">Brief Review & Alignment</span>
+        <span class="service-desc">You bring the brief, we make it work. We review what you send, flag anything unclear, and align expectations between brand and creator before outreach starts — so nothing falls apart mid-execution.</span>
+      </div>
+      <span class="service-arrow">→</span>
+    </div>
+    <div class="service-item reveal">
+      <span class="service-num">02</span>
+      <div class="service-inner">
+        <span class="service-name">Talent Matching</span>
+        <span class="service-desc">Our team personally evaluates each campaign brief and handpicks creators that genuinely fit — matching audience, market, content style, and budget. We use data and tools to inform our decisions, but the matching is done by people who understand the region, not an algorithm.</span>
+      </div>
+      <span class="service-arrow">→</span>
+    </div>
+    <div class="service-item reveal">
+      <span class="service-num">03</span>
+      <div class="service-inner">
+        <span class="service-name">Campaign Orchestration</span>
+        <span class="service-desc">Content review, script adjustments, brand coordination, posting confirmation — we keep all the moving parts aligned from first contact to go-live. This is where we add the most value.</span>
+      </div>
+      <span class="service-arrow">→</span>
+    </div>
+    <div class="service-item reveal">
+      <span class="service-num">04</span>
+      <div class="service-inner">
+        <span class="service-name">Negotiation & Contracting</span>
+        <span class="service-desc">We speak the language — literally and culturally. We handle all outreach, rate negotiation, and agreements with creators and their agencies across the region.</span>
+      </div>
+      <span class="service-arrow">→</span>
+    </div>
+    <div class="service-item reveal">
+      <span class="service-num">05</span>
+      <div class="service-inner">
+        <span class="service-name">Performance Reporting</span>
+        <span class="service-desc">After the campaign, you get a clear post-campaign report covering reach, engagement, and key results — organized and ready to share with your team or client.</span>
+      </div>
+      <span class="service-arrow">→</span>
+    </div>
+    <div class="service-item reveal">
+      <span class="service-num">06</span>
+      <div class="service-inner">
+        <span class="service-name">Agency White-Label Support</span>
+        <span class="service-desc">We work behind the scenes so you can deliver LATAM influencer campaigns under your own brand. Your client never needs to know we exist.</span>
+      </div>
+      <span class="service-arrow">→</span>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+
+<section class="why">
+  <p class="section-label reveal">Why Influmetrics</p>
+  <div class="why-grid">
+    <div class="why-card reveal">
+      <div class="why-icon">🌎</div>
+      <h4 class="why-title">We live in the market</h4>
+      <p class="why-text">Operating across LATAM, we know how creators work, how agencies respond, and what it takes to close deals in this region — from Buenos Aires to Mexico City.</p>
+    </div>
+    <div class="why-card reveal">
+      <div class="why-icon">⚡</div>
+      <h4 class="why-title">We move fast</h4>
+      <p class="why-text">No layers, no bureaucracy. When you need a talent confirmed or a campaign launched, we act with the urgency your client expects — without cutting corners.</p>
+    </div>
+    <div class="why-card reveal">
+      <div class="why-icon">🤝</div>
+      <h4 class="why-title">Built for agencies</h4>
+      <p class="why-text">We understand how agencies operate. We fit into your workflow, communicate clearly, and deliver what you need to look good in front of your clients.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+
+<section id="how">
+  <p class="section-label reveal">How it works</p>
+  <div class="how-steps reveal">
+    <div class="step">
+      <div class="step-num">01</div>
+      <h4 class="step-title">Tell us about your campaign</h4>
+      <p class="step-text">Share what you have — brand, market, budget, and timeline. No template needed. We'll ask the right questions and take it from there.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <h4 class="step-title">We find the right talent</h4>
+      <p class="step-text">We source and vet creators that match your campaign objectives — balancing quality and fit so the right profile actually shows up and delivers.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <h4 class="step-title">We close and manage</h4>
+      <p class="step-text">Once you approve the talent, we handle outreach, negotiation, content review, and execution until everything goes live.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <h4 class="step-title">You get the report</h4>
+      <p class="step-text">After the campaign we deliver a full performance report — clean data, clear insights, ready to present.</p>
+    </div>
+  </div>
+</section>
+
+<!-- REACH -->
+
+<div class="reach reveal">
+  <div class="reach-inner">
+    <h2 class="reach-title">LATAM reach, without the complexity.</h2>
+    <p class="reach-text">From Mexico to Argentina, we navigate the creator landscape across Latin America on your behalf. Whether you need one creator or a full roster across multiple countries, we handle the sourcing, the outreach, and the coordination — so you get results without the operational headache.</p>
+  </div>
+</div>
+
+<!-- CONTACT -->
+
+<section id="contact">
+  <div class="contact-grid">
+    <div class="reveal">
+      <p class="section-label">Get in touch</p>
+      <h2 class="contact-title">Let's build your <span>LATAM</span> campaign.</h2>
+      <p class="contact-sub">Brands, agencies, and startups welcome. Fill in the form or reach us directly — we'll respond promptly.</p>
+      <div class="contact-links">
+        <a href="mailto:justo@influmetrics.lat" class="contact-link">
+          <span class="c-icon">✉</span>
+          justo@influmetrics.lat
+        </a>
+        <a href="https://www.instagram.com/influmetrics.agency" target="_blank" rel="noopener" class="contact-link">
+          <span class="c-icon c-icon-cyan">◎</span>
+          @influmetrics.agency
+        </a>
+        <a href="https://www.linkedin.com/company/influmetrics-agency" target="_blank" rel="noopener" class="contact-link">
+          <span class="c-icon">in</span>
+          linkedin.com/company/influmetrics-agency
+        </a>
+
+```
+  </div>
+</div>
+<form class="contact-form reveal" id="contactForm" novalidate>
+  <div class="cform-row">
+    <div class="cfield">
+      <label for="cname">Your name *</label>
+      <input type="text" id="cname" name="name" placeholder="Jane Smith" required autocomplete="name"/>
+    </div>
+    <div class="cfield">
+      <label for="ccompany">Company *</label>
+      <input type="text" id="ccompany" name="company" placeholder="Acme Agency" required autocomplete="organization"/>
+    </div>
+  </div>
+  <div class="cfield">
+    <label for="cemail">Work email *</label>
+    <input type="email" id="cemail" name="email" placeholder="jane@acmeagency.com" required autocomplete="email"/>
+  </div>
+  <div class="cfield">
+    <label for="ctype">You are a...</label>
+    <select id="ctype" name="type">
+      <option value="" disabled selected>Select one</option>
+      <option>Brand / Company</option>
+      <option>Advertising Agency</option>
+      <option>Startup</option>
+      <option>Other</option>
+    </select>
+  </div>
+  <div class="cfield">
+    <label for="cmessage">Tell us about your campaign *</label>
+    <textarea id="cmessage" name="message" placeholder="Target market, budget range, timeline, any details..." required></textarea>
+  </div>
+  <button type="button" class="cform-submit" onclick="submitContact()">Send message →</button>
+  <p class="cform-note">We respond within 24 business hours.</p>
+  <p class="cform-success" id="cSuccess">✓ Message sent! We'll be in touch shortly.</p>
+</form>
+```
+
+  </div>
+</section>
+
+<!-- PRIVACY TRIGGER BAR -->
+
+<div class="privacy-trigger-bar">
+  <div class="privacy-trigger-left">
+    <span class="privacy-icon">🔒</span>
+    <div>
+      <p class="privacy-trigger-text">Privacy & Data Policy</p>
+      <p class="privacy-trigger-sub">How we handle your data — Ley 25.326 · GDPR-aligned · Updated 2026</p>
+    </div>
+  </div>
+  <button class="privacy-open-btn" onclick="openModal('privacy')">Read Policy →</button>
+</div>
+
+<!-- FOOTER -->
+
+<footer>
+  <span class="footer-logo">INFLU<span>METRICS</span></span>
+  <ul class="footer-links">
+    <li><a href="#register">Get Started</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#how">Process</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#" onclick="openModal('privacy'); return false;">Privacy Policy</a></li>
+  </ul>
+  <p class="footer-copy">© 2026 Influmetrics</p>
+</footer>
+
+<!-- LEGAL FOOTER -->
+
+<div class="legal-footer">
+  <div class="legal-inner">
+    <div>
+      <span class="legal-logo">INFLU<span>METRICS</span></span>
+      <span class="legal-detail">Influmetrics LLC · Albuquerque, NM 87110, United States</span>
+      <span class="legal-detail">influmetrics.lat · justo@influmetrics.lat</span>
+    </div>
+    <div class="legal-links">
+      <a href="#" onclick="openModal('privacy'); return false;">Privacy Policy</a>
+      <a href="mailto:justo@influmetrics.lat">Contact</a>
+    </div>
+    <p class="legal-copy">© 2026 Influmetrics LLC. All rights reserved.</p>
+  </div>
+</div>
+
+<!-- ═══════════ CLIENT MODAL ═══════════ -->
+
+<div class="modal-overlay" id="clientModal" onclick="overlayClose(event,'client')">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('client')">✕</button>
+    <span class="modal-tag modal-tag-client">For Brands & Agencies</span>
+    <h2 class="modal-title">Start a Campaign</h2>
+    <p class="modal-sub">Tell us about your campaign. We'll reply within 24 hours with a clear plan.</p>
+    <div class="progress-bar"><div class="progress-fill pf-green" id="cProg" style="width:33%"></div></div>
+    <p class="step-ind" id="cInd">Step 1 of 3</p>
+    <form id="clientForm" novalidate>
+      <!-- step 1 -->
+      <div class="fstep active" id="cs1">
+        <div class="mform">
+          <div class="mform-row">
+            <div class="mfield"><label>Your name *</label><input id="c_name" type="text" placeholder="Jane Smith" required/></div>
+            <div class="mfield"><label>Company *</label><input id="c_company" type="text" placeholder="Acme Agency" required/></div>
+          </div>
+          <div class="mfield"><label>Work email *</label><input id="c_email" type="email" placeholder="jane@acmeagency.com" required/></div>
+          <div class="mfield"><label>You are a...</label>
+            <select id="c_type"><option value="" disabled selected>Select one</option><option>Brand / Company</option><option>Advertising Agency</option><option>Startup</option><option>Other</option></select>
+          </div>
+        </div>
+        <div class="step-nav"><button type="button" class="btn-next btn-next-g" onclick="cNext(1)">Continue →</button></div>
+      </div>
+      <!-- step 2 -->
+      <div class="fstep" id="cs2">
+        <div class="mform">
+          <div class="mfield"><label>Target market / countries</label>
+            <div class="urgency-row">
+              <button type="button" class="pill" onclick="tog(this,'on-green')">Argentina</button>
+              <button type="button" class="pill" onclick="tog(this,'on-green')">México</button>
+              <button type="button" class="pill" onclick="tog(this,'on-green')">Brasil</button>
+              <button type="button" class="pill" onclick="tog(this,'on-green')">Colombia</button>
+              <button type="button" class="pill" onclick="tog(this,'on-green')">Chile</button>
+              <button type="button" class="pill" onclick="tog(this,'on-green')">Perú</button>
+              <button type="button" class="pill" onclick="tog(this,'on-green')">All LATAM</button>
+              <button type="button" class="pill" onclick="tog(this,'on-green')">Other</button>
+            </div>
+          </div>
+          <div class="mfield"><label>Content vertical</label>
+            <div class="urgency-row">
+              <button type="button" class="pill" onclick="tog(this,'on-green')">Lifestyle</button>
+              <button type="button" class="pill" onclick="tog(this,'on-green')">Fashion & Beauty</button>
+              <button type="button" class="pill" onclick="tog(this,'on-green')">Tech & Gaming</button>
+              <button type="button" class="pill" onclick="tog(this,'on-green')">Fitness</button>
+              <button type="button" class="pill" onclick="tog(this,'on-green')">Food</button>
+              <button type="button" class="pill" onclick="tog(this,'on-green')">Travel</button>
+              <button type="button" class="pill" onclick="tog(this,'on-green')">Entertainment</button>
+              <button type="button" class="pill" onclick="tog(this,'on-green')">Finance</button>
+              <button type="button" class="pill" onclick="tog(this,'on-green')">Sports</button>
+              <button type="button" class="pill" onclick="tog(this,'on-green')">Other</button>
+            </div>
+          </div>
+          <div class="mfield"><label>Estimated budget (USD)</label>
+            <select id="c_budget"><option value="" disabled selected>Select range</option><option>Under $2,000</option><option>$2,000 – $5,000</option><option>$5,000 – $15,000</option><option>$15,000 – $50,000</option><option>$50,000+</option></select>
+          </div>
+          <div class="mfield"><label>Campaign urgency</label>
+            <div class="urgency-row" id="urgRow">
+              <button type="button" class="pill" onclick="solo(this,'urgRow','on-green')">ASAP</button>
+              <button type="button" class="pill" onclick="solo(this,'urgRow','on-green')">Within 2 weeks</button>
+              <button type="button" class="pill" onclick="solo(this,'urgRow','on-green')">Within a month</button>
+              <button type="button" class="pill" onclick="solo(this,'urgRow','on-green')">Flexible</button>
+            </div>
+          </div>
+          <div class="mfield"><label>Platforms needed</label>
+            <div class="urgency-row">
+              <button type="button" class="pill" onclick="tog(this,'on-green')">Instagram</button>
+              <button type="button" class="pill" onclick="tog(this,'on-green')">TikTok</button>
+              <button type="button" class="pill" onclick="tog(this,'on-green')">YouTube</button>
+              <button type="button" class="pill" onclick="tog(this,'on-green')">Twitch</button>
+              <button type="button" class="pill" onclick="tog(this,'on-green')">Other</button>
+            </div>
+          </div>
+        </div>
+        <div class="step-nav">
+          <button type="button" class="btn-back" onclick="cBack(2)">← Back</button>
+          <button type="button" class="btn-next btn-next-g" onclick="cNext(2)">Continue →</button>
+        </div>
+      </div>
+      <!-- step 3 -->
+      <div class="fstep" id="cs3">
+        <div class="mform">
+          <div class="mfield"><label>Tell us about the campaign</label><textarea id="c_msg" placeholder="Brand, product, type of content, creator profile, any details..." style="height:120px;"></textarea></div>
+          <div class="mfield"><label>How did you hear about us?</label>
+            <select id="c_src"><option value="" disabled selected>Select</option><option>LinkedIn</option><option>Instagram</option><option>Referral</option><option>Google</option><option>Other</option></select>
+          </div>
+        </div>
+        <div class="step-nav">
+          <button type="button" class="btn-back" onclick="cBack(3)">← Back</button>
+          <button type="button" class="mform-submit mform-submit-client" id="cSubBtn" onclick="submitClient()">Send Campaign Brief →</button>
+        </div>
+        <p class="mform-note" style="margin-top:10px;">We respond within 24 business hours.</p>
+        <p class="mform-success" id="cModalOk">✓ Brief received! We'll be in touch shortly.</p>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ═══════════ TALENT MODAL ═══════════ -->
+
+<div class="modal-overlay" id="talentModal" onclick="overlayClose(event,'talent')">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('talent')">✕</button>
+    <span class="modal-tag modal-tag-talent">For Creators</span>
+    <h2 class="modal-title">Register as Talent</h2>
+    <p class="modal-sub">Share your profile and rates. We'll reach out when there's a matching campaign.</p>
+    <div class="progress-bar"><div class="progress-fill pf-cyan" id="tProg" style="width:25%"></div></div>
+    <p class="step-ind" id="tInd">Step 1 of 4</p>
+    <form id="talentForm" novalidate>
+      <!-- step 1 -->
+      <div class="fstep active" id="ts1">
+        <div class="mform">
+          <div class="mform-row">
+            <div class="mfield mfield-t"><label>Your name *</label><input id="t_name" type="text" placeholder="Your real name" required/></div>
+            <div class="mfield mfield-t"><label>Country *</label><input id="t_country" type="text" placeholder="e.g. Argentina" required/></div>
+          </div>
+          <div class="mfield mfield-t"><label>Contact email *</label><input id="t_email" type="email" placeholder="you@email.com" required/></div>
+          <div class="mfield mfield-t"><label>Phone number <span style="color:var(--muted);font-weight:300;">(optional)</span></label><input id="t_phone" type="tel" placeholder="+54 9 11 1234 5678"/></div>
+          <div class="mfield mfield-t"><label>Primary content category</label>
+            <select id="t_cat"><option value="" disabled selected>Select</option><option>Lifestyle</option><option>Fashion & Beauty</option><option>Tech & Gaming</option><option>Fitness & Health</option><option>Food & Cooking</option><option>Travel</option><option>Finance & Business</option><option>Entertainment / Comedy</option><option>Sports</option><option>Music</option><option>Other</option></select>
+          </div>
+        </div>
+        <div class="step-nav"><button type="button" class="btn-next btn-next-c" onclick="tNext(1)">Continue →</button></div>
+      </div>
+      <!-- step 2 -->
+      <div class="fstep" id="ts2">
+        <p class="modal-section-title">Your platforms & links</p>
+        <div class="mform">
+          <div class="mfield mfield-t"><label>Instagram username</label><input id="t_ig" type="text" placeholder="@yourusername"/></div>
+          <div class="mfield mfield-t"><label>TikTok username</label><input id="t_tt" type="text" placeholder="@yourusername"/></div>
+          <div class="mfield mfield-t"><label>YouTube channel URL</label><input id="t_yt" type="url" placeholder="https://youtube.com/@channel"/></div>
+          <div class="mfield mfield-t"><label>Twitch username</label><input id="t_tw" type="text" placeholder="yourusername"/></div>
+        </div>
+        <div class="step-nav">
+          <button type="button" class="btn-back" onclick="tBack(2)">← Back</button>
+          <button type="button" class="btn-next btn-next-c" onclick="tNext(2)">Continue →</button>
+        </div>
+      </div>
+      <!-- step 3 -->
+      <div class="fstep" id="ts3">
+        <p class="modal-section-title">Your approximate metrics</p>
+        <p class="metrics-note" style="margin-bottom:14px;">Approximate is fine — just give us a general idea of your reach.</p>
+        <div class="mform">
+          <div class="mform-row">
+            <div class="mfield mfield-t"><label>Instagram followers</label><input id="t_ig_f" type="text" placeholder="e.g. 45,000"/></div>
+            <div class="mfield mfield-t"><label>Instagram avg engagement %</label><input id="t_ig_e" type="text" placeholder="e.g. 4.2%"/></div>
+          </div>
+          <div class="mform-row">
+            <div class="mfield mfield-t"><label>TikTok followers</label><input id="t_tt_f" type="text" placeholder="e.g. 120,000"/></div>
+            <div class="mfield mfield-t"><label>TikTok avg views/video</label><input id="t_tt_v" type="text" placeholder="e.g. 30,000"/></div>
+          </div>
+          <div class="mform-row">
+            <div class="mfield mfield-t"><label>YouTube subscribers</label><input id="t_yt_s" type="text" placeholder="e.g. 80,000"/></div>
+            <div class="mfield mfield-t"><label>YouTube avg views/video</label><input id="t_yt_v" type="text" placeholder="e.g. 15,000"/></div>
+          </div>
+          <div class="mfield mfield-t"><label>Twitch avg concurrent viewers</label><input id="t_tw_v" type="text" placeholder="e.g. 500"/></div>
+        </div>
+        <div class="step-nav">
+          <button type="button" class="btn-back" onclick="tBack(3)">← Back</button>
+          <button type="button" class="btn-next btn-next-c" onclick="tNext(3)">Continue →</button>
+        </div>
+      </div>
+      <!-- step 4 -->
+      <div class="fstep" id="ts4">
+        <p class="modal-section-title">Your rates (USD) — optional but helpful</p>
+        <p class="metrics-note" style="margin-bottom:4px;">Leave blank what doesn't apply.</p>
+        <div class="price-grid">
+          <div class="price-item"><p class="price-label">Instagram Story</p><div class="price-input"><span>USD</span><input id="r_ig_s" type="number" placeholder="0"/></div></div>
+          <div class="price-item"><p class="price-label">Instagram Reel</p><div class="price-input"><span>USD</span><input id="r_ig_r" type="number" placeholder="0"/></div></div>
+          <div class="price-item"><p class="price-label">Instagram Post (feed)</p><div class="price-input"><span>USD</span><input id="r_ig_p" type="number" placeholder="0"/></div></div>
+          <div class="price-item"><p class="price-label">TikTok video</p><div class="price-input"><span>USD</span><input id="r_tt" type="number" placeholder="0"/></div></div>
+          <div class="price-item"><p class="price-label">YouTube integration 60s</p><div class="price-input"><span>USD</span><input id="r_yt60" type="number" placeholder="0"/></div></div>
+          <div class="price-item"><p class="price-label">YouTube integration 90s</p><div class="price-input"><span>USD</span><input id="r_yt90" type="number" placeholder="0"/></div></div>
+          <div class="price-item"><p class="price-label">YouTube Short</p><div class="price-input"><span>USD</span><input id="r_yts" type="number" placeholder="0"/></div></div>
+          <div class="price-item"><p class="price-label">Twitch stream integration</p><div class="price-input"><span>USD</span><input id="r_tw" type="number" placeholder="0"/></div></div>
+        </div>
+        <div class="step-nav" style="margin-top:20px;">
+          <button type="button" class="btn-back" onclick="tBack(4)">← Back</button>
+          <button type="button" class="mform-submit mform-submit-talent" id="tSubBtn" onclick="submitTalent()">Submit Profile →</button>
+        </div>
+        <p class="mform-note" style="margin-top:10px;">We'll reach out when there's a matching campaign.</p>
+        <p class="mform-success mform-success-t" id="tModalOk">✓ Profile received! We'll be in touch when there's a match.</p>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ═══════════ PRIVACY MODAL ═══════════ -->
+
+<div class="modal-overlay" id="privacyModal" onclick="overlayClose(event,'privacy')">
+  <div class="modal modal-privacy">
+    <button class="modal-close" onclick="closeModal('privacy')">✕</button>
+    <span class="modal-tag modal-tag-privacy">Data & Privacy</span>
+    <h2 class="modal-title">Privacy Policy</h2>
+    <div class="priv-badge">🔒 Ley 25.326 · GDPR-aligned · Updated January 2026</div>
+    <div class="priv-langs">
+      <button class="priv-lang-btn active" onclick="privLang('en',this)">English</button>
+      <button class="priv-lang-btn" onclick="privLang('es',this)">Español</button>
+    </div>
+
+```
+<div class="priv-body" id="priv-en">
+  <h3>1. Who we are</h3>
+  <p>Influmetrics LLC is a talent management and influencer marketing agency incorporated in New Mexico, United States, operating across Latin America. Contact: <a href="mailto:justo@influmetrics.lat">justo@influmetrics.lat</a></p>
+
+  <h3>2. What data we collect</h3>
+  <ul>
+    <li><strong>Contact data:</strong> name, email address, company name.</li>
+    <li><strong>Campaign data:</strong> budget range, target market, timeline, brief details.</li>
+    <li><strong>Talent data:</strong> social media handles, platform metrics, pricing information.</li>
+    <li><strong>Technical data:</strong> basic browsing data collected if analytics are enabled.</li>
+  </ul>
+
+  <h3>3. How we use your data</h3>
+  <p>We use your data exclusively to respond to inquiries, match talent profiles with brand campaigns, and manage ongoing campaign coordination. We do not sell, rent, or commercialize your data to third parties under any circumstances.</p>
+
+  <h3>4. Legal basis</h3>
+  <p>Processing is based on your consent when submitting forms, and on the execution of a pre-contractual relationship when you request our services.</p>
+
+  <h3>5. Data retention</h3>
+  <p>Contact form submissions are retained for up to 2 years. Talent profiles are retained while the creator maintains an active relationship with Influmetrics. You may request deletion at any time.</p>
+
+  <h3>6. Your rights</h3>
+  <p>You have the right to access, correct, and delete your personal data at any time. Under Argentine Law 25,326, you may also file a complaint with the AAIP (Agencia de Acceso a la Información Pública). Under GDPR, you may contact your local Data Protection Authority.</p>
+  <p>To exercise any right: <a href="mailto:justo@influmetrics.lat">justo@influmetrics.lat</a></p>
+
+  <h3>7. Security</h3>
+  <p>We apply appropriate technical and organizational measures to protect your personal data against unauthorized access or disclosure.</p>
+</div>
+
+<div class="priv-body" id="priv-es" style="display:none;">
+  <h3>1. Quiénes somos</h3>
+  <p>Influmetrics LLC es una agencia de gestión de talentos y marketing de influencers constituida en Nuevo México, Estados Unidos, con operaciones en América Latina. Contacto: <a href="mailto:justo@influmetrics.lat">justo@influmetrics.lat</a></p>
+
+  <h3>2. Qué datos recopilamos</h3>
+  <ul>
+    <li><strong>Datos de contacto:</strong> nombre, correo electrónico, nombre de empresa.</li>
+    <li><strong>Datos de campaña:</strong> presupuesto, mercado objetivo, tiempos, brief.</li>
+    <li><strong>Datos de talentos:</strong> redes sociales, métricas de plataformas, precios.</li>
+    <li><strong>Datos técnicos:</strong> datos básicos de navegación si se utilizan analytics.</li>
+  </ul>
+
+  <h3>3. Para qué usamos tus datos</h3>
+  <p>Utilizamos tus datos exclusivamente para responder consultas, conectar perfiles de talentos con campañas y coordinar la ejecución de las mismas. No vendemos, alquilamos ni comercializamos tus datos a terceros bajo ninguna circunstancia.</p>
+
+  <h3>4. Base legal del tratamiento</h3>
+  <p>El tratamiento se basa en tu consentimiento al completar formularios, y en la ejecución de una relación precontractual cuando solicitás nuestros servicios.</p>
+
+  <h3>5. Retención de datos</h3>
+  <p>Las consultas por formulario se conservan hasta 2 años. Los perfiles de talentos se conservan mientras el creador mantenga una relación activa con Influmetrics. Podés solicitar la eliminación de tus datos en cualquier momento.</p>
+
+  <h3>6. Tus derechos</h3>
+  <p>Tenés derecho a acceder, rectificar y suprimir tus datos personales en cualquier momento. Conforme a la Ley 25.326, podés ejercer el derecho de acceso en forma gratuita a intervalos no inferiores a seis meses, salvo acreditación de interés legítimo (art. 14, inc. 3). La autoridad de control es la AAIP (Agencia de Acceso a la Información Pública).</p>
+  <p>Para ejercer cualquier derecho: <a href="mailto:justo@influmetrics.lat">justo@influmetrics.lat</a></p>
+
+  <h3>7. Seguridad</h3>
+  <p>Aplicamos medidas técnicas y organizativas apropiadas para proteger tus datos personales contra accesos no autorizados o divulgación.</p>
+</div>
+
+<!-- DSAR FORM -->
+<div style="margin-top:36px; padding-top:28px; border-top:1px solid rgba(244,241,236,0.1);">
+  <p style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.95rem;margin-bottom:6px;">Exercise your data rights</p>
+  <p style="font-size:0.83rem;color:rgba(244,241,236,0.42);margin-bottom:20px;line-height:1.7;">Use this form to request access, correction, or deletion of your personal data. We respond within 30 days as required by law.</p>
+  <div style="display:flex;flex-direction:column;gap:12px;" id="dsarForm">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+      <div style="display:flex;flex-direction:column;gap:6px;">
+        <label style="font-size:0.68rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(244,241,236,0.42);">Full name *</label>
+        <input id="dsar_name" type="text" placeholder="Your full name" style="background:#1a1a1a;border:1px solid rgba(244,241,236,0.18);color:#f4f1ec;font-family:'DM Sans',sans-serif;font-size:0.9rem;padding:11px 14px;border-radius:2px;outline:none;"/>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px;">
+        <label style="font-size:0.68rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(244,241,236,0.42);">Email *</label>
+        <input id="dsar_email" type="email" placeholder="your@email.com" style="background:#1a1a1a;border:1px solid rgba(244,241,236,0.18);color:#f4f1ec;font-family:'DM Sans',sans-serif;font-size:0.9rem;padding:11px 14px;border-radius:2px;outline:none;"/>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:6px;">
+      <label style="font-size:0.68rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(244,241,236,0.42);">Request type *</label>
+      <select id="dsar_type" style="background:#1a1a1a;border:1px solid rgba(244,241,236,0.18);color:#f4f1ec;font-family:'DM Sans',sans-serif;font-size:0.9rem;padding:11px 14px;border-radius:2px;outline:none;-webkit-appearance:none;">
+        <option value="" disabled selected>Select request type</option>
+        <option>Access my data — I want to know what data you hold about me</option>
+        <option>Delete my data — I want my data erased</option>
+        <option>Correct my data — I want to update incorrect information</option>
+        <option>Restrict processing — I want to limit how my data is used</option>
+        <option>Data portability — I want a copy of my data</option>
+        <option>Object to processing — I want to opt out</option>
+        <option>Other concern</option>
+      </select>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:6px;">
+      <label style="font-size:0.68rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(244,241,236,0.42);">Details</label>
+      <textarea id="dsar_msg" placeholder="Provide any additional context about your request..." style="background:#1a1a1a;border:1px solid rgba(244,241,236,0.18);color:#f4f1ec;font-family:'DM Sans',sans-serif;font-size:0.9rem;padding:11px 14px;border-radius:2px;outline:none;resize:none;height:88px;"></textarea>
+    </div>
+    <button type="button" onclick="submitDSAR()" id="dsarBtn" style="background:#b8f04a;color:#070707;font-family:'Syne',sans-serif;font-weight:700;font-size:0.85rem;padding:13px 26px;border:none;border-radius:2px;cursor:pointer;align-self:flex-start;transition:opacity 0.15s,transform 0.15s;">Submit Request →</button>
+    <p style="font-size:0.74rem;color:rgba(244,241,236,0.3);">We respond within 30 days. Your identity may be verified before processing.</p>
+    <p id="dsarOk" style="font-size:0.86rem;color:#b8f04a;display:none;">✓ Request received. We'll respond within 30 days.</p>
+  </div>
+</div>
+```
+
+  </div>
+</div>
+
+<script>
+  // ── NAV SCROLL ──
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40), { passive: true });
+
+  // ── HAMBURGER ──
+  document.getElementById('hamburger').addEventListener('click', () => {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  });
+  function closeMobile() { document.getElementById('mobileMenu').classList.remove('open'); }
+
+  // ── REVEAL ──
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => { if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 55); io.unobserve(e.target); } });
+  }, { threshold: 0.07 });
+  document.querySelectorAll('.reveal').forEach(r => io.observe(r));
+
+  // ── MODALS ──
+  function openModal(type) {
+    const id = { client: 'clientModal', talent: 'talentModal', privacy: 'privacyModal' }[type];
+    document.getElementById(id).classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(type) {
+    const id = { client: 'clientModal', talent: 'talentModal', privacy: 'privacyModal' }[type];
+    document.getElementById(id).classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function overlayClose(e, type) { if (e.target === e.currentTarget) closeModal(type); }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') { ['client','talent','privacy'].forEach(closeModal); } });
+
+  // ── CLIENT STEPS ──
+  let cStep = 1;
+  function setCStep(n) {
+    document.getElementById(`cs${cStep}`).classList.remove('active');
+    cStep = n;
+    document.getElementById(`cs${cStep}`).classList.add('active');
+    document.getElementById('cProg').style.width = [33,66,100][cStep-1] + '%';
+    document.getElementById('cInd').textContent = `Step ${cStep} of 3`;
+  }
+  function cNext(from) {
+    if (from === 1) {
+      if (!document.getElementById('c_name').value.trim() || !document.getElementById('c_email').value.trim()) {
+        alert('Please enter your name and email.'); return;
+      }
+    }
+    setCStep(from + 1);
+  }
+  function cBack(from) { setCStep(from - 1); }
+
+  // ── TALENT STEPS ──
+  let tStep = 1;
+  function setTStep(n) {
+    document.getElementById(`ts${tStep}`).classList.remove('active');
+    tStep = n;
+    document.getElementById(`ts${tStep}`).classList.add('active');
+    document.getElementById('tProg').style.width = [25,50,75,100][tStep-1] + '%';
+    document.getElementById('tInd').textContent = `Step ${tStep} of 4`;
+  }
+  function tNext(from) {
+    if (from === 1) {
+      if (!document.getElementById('t_name').value.trim() || !document.getElementById('t_email').value.trim()) {
+        alert('Please enter your name and email.'); return;
+      }
+    }
+    setTStep(from + 1);
+  }
+  function tBack(from) { setTStep(from - 1); }
+
+  // ── PILLS ──
+  function solo(btn, rowId, cls) {
+    btn.closest('.urgency-row').querySelectorAll('.pill').forEach(p => p.classList.remove(cls));
+    btn.classList.add(cls);
+  }
+  function tog(btn, cls) { btn.classList.toggle(cls); }
+
+  // ── COLLECT DATA HELPERS ──
+  function v(id) { const el = document.getElementById(id); return el ? el.value.trim() : ''; }
+  function selectedPills(rowId, cls) {
+    return Array.from(document.querySelectorAll(`#${rowId} .pill.${cls}`)).map(p => p.textContent).join(', ');
+  }
+
+  // ── BUILD EMAIL BODY (formatted for copy-paste to Excel) ──
+  function buildClientBody() {
+    return `NEW CAMPAIGN BRIEF — influmetrics.lat
+============================================
+Name:        ${v('c_name')}
+Company:     ${v('c_company')}
+Email:       ${v('c_email')}
+Type:        ${v('c_type')}
+--------------------------------------------
+Market:      ${v('c_market')}
+Budget:      ${v('c_budget')}
+Urgency:     ${selectedPills('urgRow','on-green')}
+Platforms:   ${Array.from(document.querySelectorAll('#cs2 .pill.on-green')).map(p=>p.textContent).filter(t=>!['ASAP','Within 2 weeks','Within a month','Flexible'].includes(t)).join(', ')}
+--------------------------------------------
+Message:
+${v('c_msg')}
+--------------------------------------------
+Source:      ${v('c_src')}
+Submitted:   ${new Date().toLocaleString('en-GB')}
+============================================`;
+  }
+
+  function buildTalentBody() {
+    return `NEW TALENT REGISTRATION — influmetrics.lat
+============================================
+Name:          ${v('t_name')}
+Country:       ${v('t_country')}
+Email:         ${v('t_email')}
+Phone:         ${v('t_phone')||'–'}
+Category:      ${v('t_cat')}
+--------------------------------------------
+PLATFORMS
+Instagram:     ${v('t_ig')}
+TikTok:        ${v('t_tt')}
+YouTube:       ${v('t_yt')}
+Twitch:        ${v('t_tw')}
+--------------------------------------------
+METRICS
+IG Followers:  ${v('t_ig_f')}    IG Engagement: ${v('t_ig_e')}
+TT Followers:  ${v('t_tt_f')}    TT Avg views:  ${v('t_tt_v')}
+YT Subs:       ${v('t_yt_s')}    YT Avg views:  ${v('t_yt_v')}
+Twitch avg:    ${v('t_tw_v')}
+--------------------------------------------
+RATES (USD)
+IG Story:      $${v('r_ig_s')||'–'}
+IG Reel:       $${v('r_ig_r')||'–'}
+IG Post:       $${v('r_ig_p')||'–'}
+TikTok video:  $${v('r_tt')||'–'}
+YT 60s:        $${v('r_yt60')||'–'}
+YT 90s:        $${v('r_yt90')||'–'}
+YT Short:      $${v('r_yts')||'–'}
+Twitch:        $${v('r_tw')||'–'}
+--------------------------------------------
+Submitted:     ${new Date().toLocaleString('en-GB')}
+============================================`;
+  }
+
+  function buildContactBody() {
+    return `NEW CONTACT MESSAGE — influmetrics.lat
+============================================
+Name:        ${v('cname')}
+Company:     ${v('ccompany')}
+Email:       ${v('cemail')}
+Type:        ${v('ctype')}
+--------------------------------------------
+Message:
+${v('cmessage')}
+--------------------------------------------
+Submitted:   ${new Date().toLocaleString('en-GB')}
+============================================`;
+  }
+
+  // ── SEND VIA FORMSPREE ──
+  const W3F_KEY = '420f1083-ebf8-4288-8b83-74fb8b03abd5';
+
+  async function sendToFormspree(subject, bodyText) {
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        access_key: W3F_KEY,
+        subject: subject,
+        message: bodyText,
+        from_name: 'Influmetrics Website'
+      })
+    });
+    return res.ok;
+  }
+
+  async function submitClient() {
+    if (!v('c_name') || !v('c_email')) { alert('Please fill step 1 fields.'); return; }
+    const btn = document.getElementById('cSubBtn');
+    btn.textContent = 'Sending...'; btn.disabled = true;
+    const ok = await sendToFormspree('New Campaign Brief – Influmetrics', buildClientBody());
+    btn.style.display = 'none';
+    document.getElementById('cModalOk').style.display = 'block';
+    if (!ok) document.getElementById('cModalOk').textContent = '✓ Received! (Check your inbox — form also saved)';
+    document.getElementById('clientForm').reset();
+  }
+
+  async function submitTalent() {
+    if (!v('t_name') || !v('t_email')) { alert('Please fill step 1 fields.'); return; }
+    const btn = document.getElementById('tSubBtn');
+    btn.textContent = 'Sending...'; btn.disabled = true;
+    const ok = await sendToFormspree('New Talent Registration – Influmetrics', buildTalentBody());
+    btn.style.display = 'none';
+    document.getElementById('tModalOk').style.display = 'block';
+    document.getElementById('talentForm').reset();
+  }
+
+  async function submitContact() {
+    if (!v('cname') || !v('cemail') || !v('cmessage')) { alert('Please fill in name, email, and message.'); return; }
+    const btn = document.querySelector('#contactForm .cform-submit');
+    btn.textContent = 'Sending...'; btn.disabled = true;
+    const ok = await sendToFormspree('New Contact Message – Influmetrics', buildContactBody());
+    btn.style.display = 'none';
+    document.getElementById('cSuccess').style.display = 'block';
+    document.getElementById('contactForm').reset();
+  }
+
+  // ── PRIVACY LANG ──
+  function privLang(lang, btn) {
+    document.getElementById('priv-en').style.display = lang === 'en' ? 'block' : 'none';
+    document.getElementById('priv-es').style.display = lang === 'es' ? 'block' : 'none';
+    document.querySelectorAll('.priv-lang-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+
+  async function submitDSAR() {
+    const name = document.getElementById('dsar_name').value.trim();
+    const email = document.getElementById('dsar_email').value.trim();
+    const type = document.getElementById('dsar_type').value;
+    if (!name || !email || !type) { alert('Please fill in name, email, and request type.'); return; }
+    const btn = document.getElementById('dsarBtn');
+    btn.textContent = 'Sending...'; btn.disabled = true;
+    const body = `DATA SUBJECT REQUEST — influmetrics.lat
+============================================
+Name:    ${name}
+Email:   ${email}
+Request: ${type}
+Details: ${document.getElementById('dsar_msg').value.trim() || '–'}
+Submitted: ${new Date().toLocaleString('en-GB')}
+============================================`;
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({ access_key: W3F_KEY, subject: 'Data Subject Request – Influmetrics', message: body, from_name: 'Influmetrics DSAR' })
+    });
+    btn.style.display = 'none';
+    document.getElementById('dsarOk').style.display = 'block';
+  }
+</script>
+
+</body>
+</html>
