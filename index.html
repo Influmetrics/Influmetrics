@@ -49,19 +49,14 @@ nav {
   display: flex; justify-content: space-between; align-items: center;
   border-bottom: 1px solid transparent;
   transition: border-color 0.3s, background 0.3s;
-  gap: 32px;
 }
 nav.scrolled { background: rgba(7,7,7,0.95); backdrop-filter: blur(18px); border-color: var(--border); }
 .nav-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.05rem; letter-spacing: 0.05em; color: var(--white); text-decoration: none; flex-shrink: 0; white-space: nowrap; }
 .nav-logo span { color: var(--accent); }
-.nav-links { display: flex; gap: 28px; list-style: none; flex-shrink: 1; }
+.nav-links { display: flex; gap: 28px; list-style: none; align-items: center; }
 .nav-links a { font-size: 0.75rem; font-weight: 400; color: var(--muted); text-decoration: none; letter-spacing: 0.07em; text-transform: uppercase; transition: color 0.2s; white-space: nowrap; }
 .nav-links a:hover { color: var(--white); }
-.nav-right { display: flex; gap: 10px; align-items: center; }
-.nav-cta-talent { font-size: 0.78rem; font-weight: 600; color: var(--black); background: var(--accent2); padding: 9px 18px; border-radius: 2px; text-decoration: none; font-family: 'Syne', sans-serif; transition: opacity 0.15s, transform 0.1s; letter-spacing: 0.02em; cursor: pointer; border: none; }
-.nav-cta { font-size: 0.78rem; font-weight: 600; color: var(--black); background: var(--accent); padding: 9px 18px; border-radius: 2px; text-decoration: none; font-family: 'Syne', sans-serif; transition: opacity 0.15s, transform 0.1s; letter-spacing: 0.02em; cursor: pointer; border: none; }
-.nav-cta:active, .nav-cta-talent:active { transform: scale(0.94); opacity: 0.75; }
-.nav-cta:hover, .nav-cta-talent:hover { opacity: 0.88; }
+.nav-right { display: none; }
 .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
 .hamburger span { width: 22px; height: 2px; background: var(--white); border-radius: 2px; display: block; }
 .mobile-menu { display: none; position: fixed; top: 64px; left: 0; right: 0; bottom: 0; background: rgba(7,7,7,0.98); backdrop-filter: blur(20px); flex-direction: column; align-items: center; justify-content: center; gap: 28px; z-index: 199; }
@@ -217,6 +212,13 @@ section { padding: 110px 48px; }
 .modal-overlay.open { display: flex; }
 .modal { background: var(--mid); border: 1px solid var(--border-bright); border-radius: 4px; width: 100%; max-width: 680px; max-height: 90vh; overflow-y: auto; padding: 48px; position: relative; animation: modalIn 0.28s ease; margin: auto; }
 .modal-privacy { max-width: 760px; }
+.modal-about { max-width: 860px; }
+.values-modal-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 2px; margin-top: 28px; }
+.value-card { background: #141414; padding: 36px 32px; position: relative; overflow: hidden; }
+.value-num { font-family: 'Syne',sans-serif; font-weight: 800; font-size: 2.4rem; color: rgba(184,240,74,0.07); line-height: 1; position: absolute; top: 14px; right: 18px; letter-spacing: -0.04em; }
+.value-title { font-family: 'Syne',sans-serif; font-weight: 800; font-size: 1.5rem; color: var(--accent); letter-spacing: -0.02em; margin-bottom: 12px; line-height: 1.1; }
+.value-text { font-size: 0.88rem; font-weight: 300; color: var(--muted); line-height: 1.78; }
+@media (max-width: 600px) { .values-modal-grid { grid-template-columns: 1fr; } }
 @keyframes modalIn { from { opacity: 0; transform: translateY(16px) scale(0.98); } to { opacity: 1; transform: none; } }
 .modal-close { position: absolute; top: 20px; right: 20px; background: none; border: none; color: var(--muted); font-size: 1.4rem; cursor: pointer; line-height: 1; transition: color 0.2s; padding: 4px 8px; }
 .modal-close:hover { color: var(--white); }
@@ -314,16 +316,15 @@ footer { padding: 40px 48px; border-top: 1px solid var(--border); display: flex;
 .reveal.visible { opacity: 1; transform: none; }
 
 /* RESPONSIVE */
-@media (max-width: 1024px) {
-  .nav-links, .nav-right { display: none; }
+@media (max-width: 600px) {
+  nav { padding: 0 20px; height: 60px; }
+  .nav-links { display: none; }
   .hamburger { display: flex; }
-  nav { padding: 0 24px; height: 64px; }
 }
 @media (max-width: 900px) {
   section { padding: 80px 24px; }
   .hero { padding: 64px 24px 64px; }
   .hero-bottom { flex-direction: column; align-items: flex-start; gap: 32px; }
-  .hero-actions { align-items: flex-start; flex-direction: row; flex-wrap: wrap; }
   .register-split { grid-template-columns: 1fr; }
   .reg-panel-client { border-right: none; border-bottom: 1px solid var(--border); }
   .serve-grid { grid-template-columns: 1fr; }
@@ -367,15 +368,12 @@ footer { padding: 40px 48px; border-top: 1px solid var(--border); display: flex;
 <nav id="nav">
   <a href="https://influmetrics.lat" class="nav-logo">INFLU<span>METRICS</span></a>
   <ul class="nav-links">
-    <li><a href="#about">Who We Are</a></li>
+    <li><a href="#about" onclick="openAbout()">Who We Are</a></li>
     <li><a href="#register">Get Started</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#how">Process</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <div class="nav-right">
-    <button class="nav-cta" onclick="openModal('client')">Start a Campaign</button>
-  </div>
   <button class="hamburger" id="hamburger" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
@@ -384,7 +382,7 @@ footer { padding: 40px 48px; border-top: 1px solid var(--border); display: flex;
 <!-- MOBILE MENU -->
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#about" onclick="closeMobile()">Who We Are</a>
+  <a href="#" onclick="openModal('about'); closeMobile(); return false;">Who We Are</a>
   <a href="#register" onclick="closeMobile()">Get Started</a>
   <a href="#services" onclick="closeMobile()">Services</a>
   <a href="#how" onclick="closeMobile()">Process</a>
@@ -605,49 +603,9 @@ footer { padding: 40px 48px; border-top: 1px solid var(--border); display: flex;
   </div>
 </div>
 
-<!-- WHO WE ARE + VALUES -->
+<!-- WHO WE ARE MODAL TRIGGER - hidden section for anchor -->
 
-<section id="about" style="background:var(--mid); border-top:1px solid var(--border);">
-  <div class="reveal" style="max-width:720px; margin-bottom:80px;">
-    <p class="section-label">Who we are</p>
-    <h2 style="font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(2rem,4vw,3.4rem);line-height:1.06;letter-spacing:-0.02em;margin-bottom:24px;">A small team with deep roots in LATAM's creator economy.</h2>
-    <p style="font-size:1rem;font-weight:300;color:var(--muted);line-height:1.82;">Influmetrics was built by people who have worked in influencer marketing from the inside — managing campaigns, negotiating with talent, and understanding what it really takes to make a collaboration work. We're not a platform. We're a team that cares about getting it right.</p>
-  </div>
-
-  <div class="reveal">
-    <p class="section-label">What we believe in</p>
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2px;" class="values-grid">
-
-```
-  <div style="background:var(--black);padding:52px 40px;position:relative;overflow:hidden;">
-    <p style="font-family:'Syne',sans-serif;font-weight:800;font-size:3.5rem;color:rgba(184,240,74,0.08);line-height:1;position:absolute;top:24px;right:24px;letter-spacing:-0.04em;">01</p>
-    <h3 style="font-family:'Syne',sans-serif;font-weight:800;font-size:2rem;color:var(--accent);letter-spacing:-0.02em;margin-bottom:20px;line-height:1;">Transparency</h3>
-    <p style="font-size:0.9rem;font-weight:300;color:var(--muted);line-height:1.78;">We tell you what we can do and what we can't. No inflated numbers, no false promises. If something isn't working, you'll hear it from us first.</p>
-  </div>
-
-  <div style="background:var(--black);padding:52px 40px;position:relative;overflow:hidden;">
-    <p style="font-family:'Syne',sans-serif;font-weight:800;font-size:3.5rem;color:rgba(184,240,74,0.08);line-height:1;position:absolute;top:24px;right:24px;letter-spacing:-0.04em;">02</p>
-    <h3 style="font-family:'Syne',sans-serif;font-weight:800;font-size:2rem;color:var(--accent);letter-spacing:-0.02em;margin-bottom:20px;line-height:1;">Relationships</h3>
-    <p style="font-size:0.9rem;font-weight:300;color:var(--muted);line-height:1.78;">We work with creators and clients we respect, and we build for the long term. One good campaign can become an ongoing partnership — that's always the goal.</p>
-  </div>
-
-  <div style="background:var(--black);padding:52px 40px;position:relative;overflow:hidden;">
-    <p style="font-family:'Syne',sans-serif;font-weight:800;font-size:3.5rem;color:rgba(184,240,74,0.08);line-height:1;position:absolute;top:24px;right:24px;letter-spacing:-0.04em;">03</p>
-    <h3 style="font-family:'Syne',sans-serif;font-weight:800;font-size:2rem;color:var(--accent);letter-spacing:-0.02em;margin-bottom:20px;line-height:1;">Dare</h3>
-    <p style="font-size:0.9rem;font-weight:300;color:var(--muted);line-height:1.78;">We propose the right talent even when it's not the obvious choice, and we tell clients when something won't work. Good outcomes require honest conversations.</p>
-  </div>
-
-  <div style="background:var(--black);padding:52px 40px;position:relative;overflow:hidden;">
-    <p style="font-family:'Syne',sans-serif;font-weight:800;font-size:3.5rem;color:rgba(184,240,74,0.08);line-height:1;position:absolute;top:24px;right:24px;letter-spacing:-0.04em;">04</p>
-    <h3 style="font-family:'Syne',sans-serif;font-weight:800;font-size:2rem;color:var(--accent);letter-spacing:-0.02em;margin-bottom:20px;line-height:1;">Speed</h3>
-    <p style="font-size:0.9rem;font-weight:300;color:var(--muted);line-height:1.78;">We act with the urgency our clients need — without cutting corners. In this industry, timing matters. We're built to move fast when it counts.</p>
-  </div>
-
-</div>
-```
-
-  </div>
-</section>
+<div id="about"></div>
 
 <!-- CONTACT -->
 
@@ -691,7 +649,7 @@ footer { padding: 40px 48px; border-top: 1px solid var(--border); display: flex;
 <footer>
   <span class="footer-logo">INFLU<span>METRICS</span></span>
   <ul class="footer-links">
-    <li><a href="#about">Who We Are</a></li>
+    <li><a href="#" onclick="openModal('about'); return false;">Who We Are</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#how">Process</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -714,6 +672,40 @@ footer { padding: 40px 48px; border-top: 1px solid var(--border); display: flex;
       <a href="mailto:justo@influmetrics.lat">Contact</a>
     </div>
     <p class="legal-copy">© 2026 Influmetrics LLC. All rights reserved.</p>
+  </div>
+</div>
+
+<!-- ═══════════ ABOUT MODAL ═══════════ -->
+
+<div class="modal-overlay" id="aboutModal" onclick="overlayClose(event,'about')">
+  <div class="modal modal-about">
+    <button class="modal-close" onclick="closeModal('about')">✕</button>
+    <span class="modal-tag" style="background:var(--accent-dim);color:var(--accent);border:1px solid rgba(184,240,74,0.2);">Who We Are</span>
+    <h2 class="modal-title">A small team with deep roots in LATAM's creator economy.</h2>
+    <p class="modal-sub">Influmetrics was built by people who have worked in influencer marketing from the inside — managing campaigns, negotiating with talent, and understanding what it really takes to make a collaboration work. We're not a platform. We're a team that cares about getting it right.</p>
+    <p style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:0;">What we believe in</p>
+    <div class="values-modal-grid">
+      <div class="value-card">
+        <span class="value-num">01</span>
+        <h3 class="value-title">Transparency</h3>
+        <p class="value-text">We tell you what we can do and what we can't. No inflated numbers, no false promises. If something isn't working, you'll hear it from us first.</p>
+      </div>
+      <div class="value-card">
+        <span class="value-num">02</span>
+        <h3 class="value-title">Relationships</h3>
+        <p class="value-text">We work with creators and clients we respect, and we build for the long term. One good campaign can become an ongoing partnership — that's always the goal.</p>
+      </div>
+      <div class="value-card">
+        <span class="value-num">03</span>
+        <h3 class="value-title">Dare</h3>
+        <p class="value-text">We propose the right talent even when it's not the obvious choice, and we tell clients when something won't work. Good outcomes require honest conversations.</p>
+      </div>
+      <div class="value-card">
+        <span class="value-num">04</span>
+        <h3 class="value-title">Speed</h3>
+        <p class="value-text">We act with the urgency our clients need — without cutting corners. In this industry, timing matters. We're built to move fast when it counts.</p>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -1116,17 +1108,18 @@ footer { padding: 40px 48px; border-top: 1px solid var(--border); display: flex;
 
   // ── MODALS ──
   function openModal(type) {
-    const id = { client: 'clientModal', talent: 'talentModal', privacy: 'privacyModal' }[type];
+    const id = { client: 'clientModal', talent: 'talentModal', privacy: 'privacyModal', about: 'aboutModal' }[type];
     document.getElementById(id).classList.add('open');
     document.body.style.overflow = 'hidden';
   }
   function closeModal(type) {
-    const id = { client: 'clientModal', talent: 'talentModal', privacy: 'privacyModal' }[type];
+    const id = { client: 'clientModal', talent: 'talentModal', privacy: 'privacyModal', about: 'aboutModal' }[type];
     document.getElementById(id).classList.remove('open');
     document.body.style.overflow = '';
   }
   function overlayClose(e, type) { if (e.target === e.currentTarget) closeModal(type); }
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') { ['client','talent','privacy'].forEach(closeModal); } });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') { ['client','talent','privacy','about'].forEach(closeModal); } });
+  function openAbout(e) { if(e) e.preventDefault(); openModal('about'); }
 
   // ── CLIENT STEPS ──
   let cStep = 1;
