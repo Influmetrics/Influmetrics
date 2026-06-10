@@ -1104,7 +1104,7 @@ footer { padding: 40px 48px; border-top: 1px solid var(--border); display: flex;
   function checkReveal() { document.querySelectorAll('.reveal').forEach(el => { if (el.getBoundingClientRect().top < window.innerHeight * 1.05) el.classList.add('visible'); }); }
   window.addEventListener('scroll', checkReveal, {passive: true});
   window.addEventListener('resize', checkReveal, {passive: true});
-  checkReveal();
+  checkReveal(); setTimeout(checkReveal, 100);
 
   // ── MODALS ──
   function openModal(type) {
