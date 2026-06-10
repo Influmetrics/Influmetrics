@@ -360,6 +360,7 @@ footer { padding: 40px 48px; border-top: 1px solid var(--border); display: flex;
 ```
 
   </style>
+  <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
 </head>
 <body>
 
@@ -795,7 +796,8 @@ footer { padding: 40px 48px; border-top: 1px solid var(--border); display: flex;
         </div>
         <div class="step-nav">
           <button type="button" class="btn-back" onclick="cBack(3)">← Back</button>
-          <button type="button" class="mform-submit mform-submit-client" id="cSubBtn" onclick="submitClient()">Send Campaign Brief →</button>
+                    <div class="h-captcha" data-sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be1" style="margin-bottom:12px"></div>
+<button type="button" class="mform-submit mform-submit-client" id="cSubBtn" onclick="submitClient()">Send Campaign Brief →</button>
         </div>
         <p class="mform-note" style="margin-top:10px;">We respond within 24 business hours.</p>
         <p class="mform-success" id="cModalOk">✓ Brief received! We'll be in touch shortly.</p>
@@ -884,7 +886,8 @@ footer { padding: 40px 48px; border-top: 1px solid var(--border); display: flex;
         </div>
         <div class="step-nav" style="margin-top:20px;">
           <button type="button" class="btn-back" onclick="tBack(4)">← Back</button>
-          <button type="button" class="mform-submit mform-submit-talent" id="tSubBtn" onclick="submitTalent()">Submit Profile →</button>
+                    <div class="h-captcha" data-sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be1" style="margin-bottom:12px"></div>
+<button type="button" class="mform-submit mform-submit-talent" id="tSubBtn" onclick="submitTalent()">Submit Profile →</button>
         </div>
         <p class="mform-note" style="margin-top:10px;">We'll reach out when there's a matching campaign.</p>
         <p class="mform-success mform-success-t" id="tModalOk">✓ Profile received! We'll be in touch when there's a match.</p>
@@ -1255,7 +1258,8 @@ Submitted:   ${new Date().toLocaleString('en-GB')}
         access_key: W3F_KEY,
         subject: subject,
         message: bodyText,
-        from_name: 'Influmetrics Website'
+        from_name: 'Influmetrics Website',
+        "h-captcha-response": hcaptcha.getResponse()
       })
     });
     return res.ok;
