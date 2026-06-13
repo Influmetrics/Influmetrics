@@ -1365,7 +1365,8 @@ Submitted:   ${new Date().toLocaleString('en-GB')}
         "h-captcha-response": hcaptcha.getResponse()
       })
     });
-    return res.ok;
+    const data = await res.json().catch(() => ({ success: false }));
+    return data.success === true;
   }
 
   async function submitClient() {
@@ -1373,9 +1374,9 @@ Submitted:   ${new Date().toLocaleString('en-GB')}
     const btn = document.getElementById('cSubBtn');
     btn.textContent = 'Sending...'; btn.disabled = true;
     const ok = await sendToFormspree('New Campaign Brief – Influmetrics', buildClientBody());
-    btn.style.display = 'none';
-    document.getElementById('cModalOk').style.display = 'block';
-    if (!ok) document.getElementById('cModalOk').textContent = '✓ Received! (Check your inbox — form also saved)';
+    if(!ok){ btn.disabled=false; btn.textContent='Send'; alert("We couldn't submit your form. Please verify the captcha and try again."); return; }
+    btn.style.display='none';
+    document.getElementById('cModalOk').style.display='block';
     document.getElementById('clientForm').reset();
   }
 
@@ -1384,6 +1385,7 @@ Submitted:   ${new Date().toLocaleString('en-GB')}
     const btn = document.getElementById('tSubBtn');
     btn.textContent = 'Sending...'; btn.disabled = true;
     const ok = await sendToFormspree('New Talent Registration – Influmetrics', buildTalentBody());
+    if(!ok){ btn.disabled=false; btn.textContent='Send'; alert("We couldn't submit your form. Please verify the captcha and try again."); return; }
     btn.style.display = 'none';
     document.getElementById('tModalOk').style.display = 'block';
     document.getElementById('talentForm').reset();
