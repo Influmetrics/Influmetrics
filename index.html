@@ -369,6 +369,99 @@ footer { padding: 40px 48px; border-top: 1px solid var(--border); display: flex;
 
   </style>
   <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://influmetrics.lat/#organization",
+        "name": "Influmetrics",
+        "legalName": "Influmetrics LLC",
+        "url": "https://influmetrics.lat/",
+        "description": "Influencer marketing operations across Latin America. We source, negotiate, and manage influencer campaigns for brands and agencies.",
+        "email": "justo@influmetrics.lat",
+        "areaServed": ["Argentina", "México", "Brasil", "Colombia", "Chile", "Perú"],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Albuquerque",
+          "addressRegion": "NM",
+          "postalCode": "87110",
+          "addressCountry": "US"
+        },
+        "sameAs": ["https://www.linkedin.com/company/influmetrics-agency"]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://influmetrics.lat/#website",
+        "url": "https://influmetrics.lat/",
+        "name": "Influmetrics",
+        "description": "Your bridge to LATAM's creator economy.",
+        "publisher": { "@id": "https://influmetrics.lat/#organization" },
+        "inLanguage": "en"
+      },
+      {
+        "@type": "Service",
+        "@id": "https://influmetrics.lat/#service",
+        "name": "Influencer Marketing Campaign Management",
+        "serviceType": "Influencer Marketing",
+        "provider": { "@id": "https://influmetrics.lat/#organization" },
+        "areaServed": ["Argentina", "México", "Brasil", "Colombia", "Chile", "Perú"],
+        "description": "End-to-end influencer campaign operations: brief review and alignment, talent matching, campaign orchestration, creator negotiation and contracting, performance reporting, and agency white-label support.",
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Influmetrics Services",
+          "itemListElement": [
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Brief Review & Alignment" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Talent Matching" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Campaign Orchestration" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Negotiation & Contracting" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Performance Reporting" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Agency White-Label Support" } }
+          ]
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://influmetrics.lat/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What does Influmetrics do?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Influmetrics handles the operational side of influencer marketing across Latin America \u2014 from finding the right talent to coordinating the campaign end to end. Brands and agencies bring the brief, and we take it from there."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which countries does Influmetrics cover?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We operate across Latin America, including Argentina, M\u00e9xico, Brasil, Colombia, Chile, and Per\u00fa."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does the process work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Tell us about your campaign, we find and vet the right talent, we close and manage outreach, negotiation, content review, and execution, and after the campaign we deliver a full performance report."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Who does Influmetrics work with?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We work with international brands entering Latin America, ad and media agencies needing ground support, startups scaling in the region, and regional brands scaling up their influencer operations."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
