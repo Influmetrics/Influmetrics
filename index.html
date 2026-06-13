@@ -1353,7 +1353,7 @@ Submitted:   ${new Date().toLocaleString('en-GB')}
   // ── SEND VIA FORMSPREE ──
   const W3F_KEY = '420f1083-ebf8-4288-8b83-74fb8b03abd5';
 
-  async function sendToFormspree(subject, bodyText) {
+  async function sendToFormspree(subject, bodyText, formId) {
     const res = await fetch('https://api.web3forms.com/submit', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
@@ -1362,7 +1362,7 @@ Submitted:   ${new Date().toLocaleString('en-GB')}
         subject: subject,
         message: bodyText,
         from_name: 'Influmetrics Website',
-        "h-captcha-response": hcaptcha.getResponse()
+        "h-captcha-response": (document.getElementById(formId)?.querySelector('textarea[name=\"h-captcha-response\"]')?.value) || ""
       })
     });
     const data = await res.json().catch(() => ({ success: false }));
@@ -1373,7 +1373,7 @@ Submitted:   ${new Date().toLocaleString('en-GB')}
     if (!v('c_name') || !v('c_email')) { alert('Please fill step 1 fields.'); return; }
     const btn = document.getElementById('cSubBtn');
     btn.textContent = 'Sending...'; btn.disabled = true;
-    const ok = await sendToFormspree('New Campaign Brief – Influmetrics', buildClientBody());
+    const ok = await sendToFormspree('New Campaign Brief – Influmetrics', buildClientBody(), 'clientForm');
     if(!ok){ btn.disabled=false; btn.textContent='Send'; alert("We couldn't submit your form. Please verify the captcha and try again."); return; }
     btn.style.display='none';
     document.getElementById('cModalOk').style.display='block';
@@ -1384,7 +1384,7 @@ Submitted:   ${new Date().toLocaleString('en-GB')}
     if (!v('t_name') || !v('t_email')) { alert('Please fill step 1 fields.'); return; }
     const btn = document.getElementById('tSubBtn');
     btn.textContent = 'Sending...'; btn.disabled = true;
-    const ok = await sendToFormspree('New Talent Registration – Influmetrics', buildTalentBody());
+    const ok = await sendToFormspree('New Talent Registration – Influmetrics', buildTalentBody(), 'talentForm');
     if(!ok){ btn.disabled=false; btn.textContent='Send'; alert("We couldn't submit your form. Please verify the captcha and try again."); return; }
     btn.style.display = 'none';
     document.getElementById('tModalOk').style.display = 'block';
@@ -1395,7 +1395,7 @@ Submitted:   ${new Date().toLocaleString('en-GB')}
     if (!v('cname') || !v('cemail') || !v('cmessage')) { alert('Please fill in name, email, and message.'); return; }
     const btn = document.querySelector('#contactForm .cform-submit');
     btn.textContent = 'Sending...'; btn.disabled = true;
-    const ok = await sendToFormspree('New Contact Message – Influmetrics', buildContactBody());
+    const ok = await sendToFormspree('New Contact Message – Influmetrics', buildContactBody(), 'contactForm');
     btn.style.display = 'none';
     document.getElementById('cSuccess').style.display = 'block';
     document.getElementById('contactForm').reset();
